@@ -15,4 +15,5 @@ class User < ApplicationRecord
   COURSE_TAKEN = ["IT", "Computer Science", "Network Security", "Information System"]
 
   has_secure_password
+  validates :password, length: { minimum: 6 }
 end
