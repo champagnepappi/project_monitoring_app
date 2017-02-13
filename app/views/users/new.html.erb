@@ -21,7 +21,7 @@
         </div>
         <div class="medium-12 columns">
             <%= f.label :gender %>
-            <%= f.text_field :gender %>
+            <%= f.select :gender, User::GENDER, prompt: "Select Gender" %>
         </div>
         <div class="medium-12 columns">
             <%= f.label :department %>
