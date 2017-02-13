@@ -13,6 +13,7 @@ class User < ApplicationRecord
 
   DEPARTMENT = ["IT", "Computer Science"]
   COURSE_TAKEN = ["IT", "Computer Science", "Network Security", "Information System"]
+  GENDER = ["Male","Female"]
 
   has_secure_password
   validates :password, length: { minimum: 6 }
