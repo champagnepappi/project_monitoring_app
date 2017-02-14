@@ -3,6 +3,7 @@
     <h1>Register Here</h1>
     <div>
     <%= form_for(@user) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
         <div class="medium-6 columns">
             <%= f.label :first_name %>
             <%= f.text_field :first_name %>
