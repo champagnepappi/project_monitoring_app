@@ -41,5 +41,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
       }
     end
     assert_redirected_to User.last
+    assert_not flash.empty?
   end
 end
