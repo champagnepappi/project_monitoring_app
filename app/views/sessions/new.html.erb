@@ -1,1 +1,14 @@
 <% provide(:title, 'Login')%>
+<div class="medium-6 medium-centered">
+    <h1>Login</h1>
+    <%= form_for(:session, url: login_path) do |f| %>
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+
+        <%= f.submit "Login", class: "button" %>
+
+    <% end %>
+</div>
