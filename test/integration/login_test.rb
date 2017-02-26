@@ -22,8 +22,10 @@ class LoginTest < ActionDispatch::IntegrationTest
     assert_template 'sessions/new'
     post login_path, params: {
       session: {
-        email:``
+        email: @user.email,
+        password: 'password'
       }
     }
+    assert_redirected_to @user
   end
 end
