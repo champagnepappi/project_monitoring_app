@@ -1,13 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
-  reg_no: MyString
-  gender: MyString
-  department: MyString
-  course_taken: MyString
+karam:
+  first_name: Karam
+  last_name: Kinoti
+  email: karam@gmail.com
+  reg_no: SIT/4220/15
+  gender: Female
+  department: IT
+  course_taken: IT
+  password_digest: <%= User.digest('password')%>
 
 two:
   first_name: MyString
