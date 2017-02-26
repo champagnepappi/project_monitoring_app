@@ -27,5 +27,6 @@ class LoginTest < ActionDispatch::IntegrationTest
       }
     }
     assert_redirected_to @user
+    follow_redirect!
   end
 end
