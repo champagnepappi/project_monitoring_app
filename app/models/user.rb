@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  attr_accessor :remember_token
+  attr_accessor :remember_token, :activation_token
   before_save {self.email = email.downcase}
   validates :first_name, presence: true, length: {maximum: 40}
   validates :last_name, presence: true, length: {maximum: 40}
