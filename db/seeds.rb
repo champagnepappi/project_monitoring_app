@@ -8,8 +8,8 @@ admin = User.create!(
   gender: "Male",
   department: "IT",
   course_taken: "IT",
-  password: "morty",
-  password_confirmation: "morty",
+  password: "rickmorty",
+  password_confirmation: "rickmorty",
   admin: true,
   activated: true,
   activated_at: Time.zone.now
