@@ -56,5 +56,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     #invalid activation_token
     get edit_account_activation_path("invalid token")
     assert_not is_logged_in?
+    #valid token, wrong email
+    get edit_account_activation_path(user.activation_token, email: "defwrong")
+    assert_not is_logged_in?
   end
 end
