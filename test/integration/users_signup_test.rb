@@ -48,5 +48,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     # assert_not flash.empty?
     # assert is_logged_in?
     assert_equal 1, ActionMailer::Base.deliveries.size
+    user = assigns(:user)
   end
 end
