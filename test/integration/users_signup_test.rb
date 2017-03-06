@@ -1,6 +1,10 @@
 require 'test_helper'
 
 class UsersSignupTest < ActionDispatch::IntegrationTest
+  def setup
+    ActionMailer::Base.deliveries.clear
+  end
+
   test "invalid signup" do
     get new_user_path
     assert_no_difference 'User.count' do
@@ -43,5 +47,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     # assert_redirected_to User.last
     # assert_not flash.empty?
     # assert is_logged_in?
+    assert_equal 1, ActionMailer::Base.deliveries.size
   end
 end
