@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306082504) do
+ActiveRecord::Schema.define(version: 20170308095411) do
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20170306082504) do
     t.boolean  "activated",         default: false
     t.datetime "activated_at"
     t.boolean  "admin"
+    t.string   "reset_digest"
+    t.datetime "reset_sent_at"
   end
 
 end
