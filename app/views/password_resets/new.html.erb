@@ -1,2 +1,10 @@
-<h1>PasswordResets#new</h1>
-<p>Find me in app/views/password_resets/new.html.erb</p>
+<% provide(:title, "Forgot Password")%>
+<div class="medium-6 medium-centered">
+    <h1>Forgot Password</h1>
+    <%= form_for(:password_reset, url: password_resets_path) do |f| %>
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+
+        <%= f.submit "Submit", class: "button" %>
+    <% end %>
+</div>
