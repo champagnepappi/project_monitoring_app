@@ -51,6 +51,10 @@ class PasswordResetsController < ApplicationController
       redirect_to root_url
     end
   end
+   
+  def password_blank?
+    params[:user][:password].blank?
+  end
 
   def check_expiration
     if @user.password_reset_expired?
