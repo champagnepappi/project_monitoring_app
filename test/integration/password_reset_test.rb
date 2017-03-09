@@ -28,5 +28,15 @@ class PasswordResetTest < ActionDispatch::IntegrationTest
     assert_equal 1, ActionMailer::Base.deliveries.size
     assert_not flash.empty?
     assert_redirected_to root_url
+    #password reset form
+    user = assigns(:user)
+    #wrong email
+    get edit_password_reset_path(user.reset_token, email: "")
+    assert_redirected_to root_url
+    #inactive user
+    user.toggle!(:activated)
+    get edit_password_reset_path(user.reset_token, email: user.email)
+    assert_redirected_to root_url
+    user.toggle!(:activated)
   end
 end
