@@ -56,5 +56,17 @@ class PasswordResetTest < ActionDispatch::IntegrationTest
     }
       assert_not flash.empty?
       assert_template 'password_resets/edit'
+      #valid password and confirmation
+      patch password_reset_path(user.reset_token),
+        params: {
+        email: user.email,
+        user: {
+          password: "password",
+          password_confirmation: "password"
+        }
+      }
+        assert is_logged_in?
+        assert_not flash.empty?
+        assert_redirected_to user
   end
 end
