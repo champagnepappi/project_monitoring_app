@@ -21,6 +21,10 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
   end
 
+  def edit
+    @user = User.find_by(id: params[:id])
+  end
+
   private
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :reg_no, :gender, :department, :course_taken, :password, 
@@ -35,7 +39,7 @@ class UsersController < ApplicationController
   end
 
   def correct_user
-    @user = User.find(id: params[:id])
+    @user = User.find_by(id: params[:id])
     redirect_to(root_url) unless current_user?(@user)
   end
 end
