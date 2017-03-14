@@ -1,2 +1,16 @@
-<h1>Projects#new</h1>
-<p>Find me in app/views/projects/new.html.erb</p>
+<% provide(:title, "New Project")%>
+<div class="medium-8 medium-centered">
+    <h1>Submit Project</h1>
+    <%= form_for(@project) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+
+        <%= f.label :description %>
+        <%= f.text_field :description, placeholder: "describe what the project is about" %>
+
+        <%= f.submit "Submit Project", class: "button" %>
+    <% end %>
+
+</div>
