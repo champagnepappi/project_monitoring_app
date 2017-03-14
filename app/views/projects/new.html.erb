@@ -1,5 +1,5 @@
 <% provide(:title, "New Project")%>
-<div class="medium-8 medium-centered">
+<div class="medium-6 medium-centered">
     <h1>Submit Project</h1>
     <%= form_for(@project) do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
@@ -8,7 +8,7 @@
         <%= f.text_field :title %>
 
         <%= f.label :description %>
-        <%= f.text_field :description, placeholder: "describe what the project is about" %>
+        <%= f.text_area :description, rows: "10", placeholder: "describe what the project is about" %>
 
         <%= f.submit "Submit Project", class: "button" %>
     <% end %>
