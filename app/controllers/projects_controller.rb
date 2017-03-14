@@ -4,6 +4,14 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    @project = current_user.projects.build(project_params)
+    if @project.save
+      redirect_to current_user
+      flash[:success] = "Project successfully submitted"
+    else
+      render 'new'
+      flash[:alert] = "There was a problem submitting your project"
+    end
   end
 
   private
