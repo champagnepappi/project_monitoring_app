@@ -21,4 +21,9 @@ class UserMailer < ApplicationMailer
     @user = user
     mail to: user.email, subject: "Project Approval"
   end
+
+  def project_rejection(user)
+    @user = user
+    mail to: user.email, subject: "Project rejection"
+  end
 end
