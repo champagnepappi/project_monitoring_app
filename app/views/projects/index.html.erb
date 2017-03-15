@@ -1,0 +1,23 @@
+<% provide(:title, "Projects")%>
+<div class="medium-12">
+    <div class="medium-6">
+        <table>
+            <h2>Projects Submitted</h2>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Project</th>
+                </tr>
+            </thead>
+            <% @projects.each do |project| %>
+                <tr>
+                    <td> <%= project.id %></td>
+                    <td> <%= project.title %></td>
+                </tr>
+            <% end %>
+        </table>
+    </div>
+
+    <div class="medium-6"></div>
+
+</div>
