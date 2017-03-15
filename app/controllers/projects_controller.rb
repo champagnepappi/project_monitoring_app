@@ -23,7 +23,7 @@ class ProjectsController < ApplicationController
 
   def approve
     project = Project.find_by(id: params[:id])
-    if project.update_attribute(status: "approved")
+    if project.update_attribute(:status, params[:status])
       @user = User.find(project.user_id)
       redirect_to projects_path
     end
