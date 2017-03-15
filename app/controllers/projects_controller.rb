@@ -1,7 +1,9 @@
 class ProjectsController < ApplicationController
 
   def index
-    @projects = Project.all
+    @submitted = Project.submitted
+    @approved  = Project.approved
+    @rejected  = Project.rejected
   end
 
   def new
