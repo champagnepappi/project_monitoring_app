@@ -14,8 +14,8 @@
   <body>
       <%= render 'layouts/header' %>
       <div>
-          <% flash.each do |msg_type, message| %> 
-              <div id="msg" class="alert <%= msg_type %>">
+          <% flash.each do |flash_type, message| %> 
+              <div id="messages" class="callout <%= flash_type %>">
               <%= message %>
               </div>
               <% end %>
