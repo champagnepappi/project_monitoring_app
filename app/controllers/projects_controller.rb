@@ -21,6 +21,14 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def approve
+    project = Project.find_by(id: params[:id])
+    if project.update_attribute(status: "approved")
+      @user = User.find(project.user_id)
+      redirect_to projects_path
+    end
+  end
+
   private
   def project_params
     params.require(:project).permit(:title, :description)
