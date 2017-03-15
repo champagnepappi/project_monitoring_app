@@ -1,0 +1,19 @@
+#messages {
+    color: white;
+    margin-bottom: 0;
+}
+#messages.alert {
+    background-color: #ff2700;
+}
+#messages.success {
+    background-color: #00cc49;
+}
+#messages.info {
+    background-color: blue;
+}
+#messages.warning {
+    background-color: red;
+}
+#messages.danger {
+    background-color: red;
+}
