@@ -25,6 +25,7 @@ class ProjectsController < ApplicationController
     project = Project.find_by(id: params[:id])
     if project.update_attribute(:status, params[:status])
       @user = User.find(project.user_id)
+      UserMailer.project_approval(@user).deliver
       redirect_to projects_path
     end
   end
