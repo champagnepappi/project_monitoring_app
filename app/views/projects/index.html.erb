@@ -1,6 +1,6 @@
 <% provide(:title, "Projects")%>
 <div class="medium-12">
-    <div class="medium-6">
+    <div class="medium-6 columns">
         <table>
             <h2>Projects Submitted</h2>
             <thead>
@@ -13,13 +13,29 @@
                 <tr>
                     <td> <%= submitted.id %></td>
                     <td> <%= submitted.title %></td>
-                    <td> <%= link_to "approve", approve_path(id: submitted.id, status: "approved" ) %></td>
+                    <td> <%= link_to "approve", approve_path(id: submitted.id, status: "approved" ), class: "button small" %></td>
+                    <td> <%= link_to "reject", reject_path(id: submitted.id, status: "rejected" ), class: "button small" %></td>
                 </tr>
             <% end %>
         </table>
     </div>
 
-    <div class="medium-6">
+    <div class="medium-6 columns">
+        <table>
+            <h2>Approved projects</h2>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Project</th>
+                </tr>
+            </thead>
+                <% @approved.each do |approved|%>
+                    <tr>
+                        <td> <%= approved.id %></td>
+                        <td> <%= approved.title %></td>
+                    </tr>
+                    <% end %>
+        </table>
     </div>
 
 </div>
