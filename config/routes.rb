@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
 
   get 'approve' => 'projects#approve'
+  get 'reject'  => 'projects#reject'
   resources :users
   resources :projects
   resources :account_activations, only: [:edit]
