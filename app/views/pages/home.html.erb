@@ -1,5 +1,9 @@
 <% provide(:title, 'Home') %>
-<h1>Project Tracker</h1>
-<% unless current_user  %>
-<%= link_to "Signup", new_user_path , class: "button" %>
-<% end %>
+<div id="sect">
+    <div class="pagedata">
+        <h1>Project Tracking and Monitoring Tool</h1>
+        <% unless current_user  %>
+            <%= link_to "Signup", new_user_path , class: "button" %>
+        <% end %>
+    </div>
+</div>
