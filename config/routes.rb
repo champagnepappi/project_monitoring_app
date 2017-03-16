@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'approve' => 'projects#approve'
   get 'reject'  => 'projects#reject'
   resources :users
+  resources :lecturers
   resources :projects
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
