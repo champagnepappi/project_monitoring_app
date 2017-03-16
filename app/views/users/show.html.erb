@@ -1,4 +1,8 @@
 <% provide(:title, @user.first_name)%>
-<p><%= @user.first_name %></p>
-<p><%= @user.course_taken %></p>
-<p><%= link_to "Submit your project", new_project_path %></p>
+<div class="row">
+        <p> <%= gravatar_for @user %></p>
+        <p>Name: <%= @user.first_name %></p>
+        <p>Course Taken: <%= @user.course_taken %></p>
+        <p>Email: <%= @user.email %></p>
+        <p><%= link_to "Submit your project", new_project_path %></p>
+</div>
