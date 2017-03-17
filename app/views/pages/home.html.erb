@@ -3,7 +3,9 @@
     <div class="pagedata">
         <h1>Project Tracking and Monitoring Tool</h1>
         <% unless current_user  %>
-            <%= link_to "Signup", new_user_path , class: "button " %>
+            <div class="button1">
+            <%= link_to "Signup", new_user_path %>
+            </div>
         <% end %>
     </div>
 </div>
