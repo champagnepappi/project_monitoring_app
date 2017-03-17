@@ -13,13 +13,7 @@
 
   <body>
       <%= render 'layouts/header' %>
-      <div>
-          <% flash.each do |flash_type, message| %> 
-              <div id="messages" class="callout <%= flash_type %>">
-              <%= message %>
-              </div>
-              <% end %>
-      </div>
+      <%= render 'layouts/messages' %>
     <%= yield %>
 
   </body>

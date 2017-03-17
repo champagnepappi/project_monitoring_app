@@ -8,4 +8,12 @@ class ApplicationController < ActionController::Base
       flash[:info] = "You are already signed in"
     end
   end
+
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = "Please login to continue"
+      redirect_to login_url
+    end
+  end
 end

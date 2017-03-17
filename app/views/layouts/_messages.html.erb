@@ -1,0 +1,6 @@
+<% flash.each do |flash_type, message| %> 
+    <div id="messages" class="callout <%= flash_type %>" >
+        <%= message %>
+        <a href="#" class="close">&times;</a>
+    </div>
+<% end %>
