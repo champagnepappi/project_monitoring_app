@@ -16,22 +16,10 @@
             <%= f.label :email %>
             <%= f.email_field :email %>
         </div>
-        <div class="medium-12 columns">
-            <%= f.label :reg_no %>
-            <%= f.text_field :reg_no, placeholder: "e.g SIT/1234/11" %>
-        </div>
-        <div class="medium-12 columns">
-            <%= f.label :gender %>
-            <%= f.select :gender, User::GENDER, prompt: "Select Gender" %>
-        </div>
-        <div class="medium-12 columns">
-            <%= f.label :department %>
-            <%= f.select :department, User::DEPARTMENT, prompt: "Select Department" %>
-        </div>
-        <div class="medium-12 columns">
-            <%= f.label :course_taken%>
-            <%= f.select :course_taken, User::COURSE_TAKEN, prompt: "Select course taken" %>
-        </div>
+        <%= hidden_field_tag :role, @user.role %>
+        <% unless @user.role="lecturer"%>
+            <%= render 'lec', locals: {f: f} %>
+            <% end %>
         <div class="medium-12 columns">
             <%= f.label :password %>
             <%= f.password_field :password %>
