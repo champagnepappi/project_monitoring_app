@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_params) 
     if @user.save
       @user.send_activation_email
       flash[:info] = "Please check your email to activate your account"
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   def new_lec
-    lec = User.new(lec_params)
+    lec = User.new(user_params)
     if lec.save
       redirect_to lec
     else
