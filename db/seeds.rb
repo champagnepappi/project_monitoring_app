@@ -29,3 +29,32 @@ user = User.create!(
   activated: true,
   activated_at: Time.zone.now
 )
+
+20.times do |n|
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
+  reg_no = Faker::Number.number(10)
+  email = Faker::Internet.email
+  gender = User::GENDER.sample
+  department = User::DEPARTMENT.sample
+  course_taken = User::COURSE_TAKEN.sample
+  password = "password"
+  User.create!(first_name: first_name,
+              last_name: last_name,
+              reg_no: reg_no,
+              email: email,
+              gender: gender,
+              department: department,
+              course_taken: course_taken,
+              password: password,
+              password_confirmation: password,
+              activated: true,
+              activated_at: Time.zone.now)
+
+end
+
+# 15.times do
+#   title = Faker::Commerce.product_name
+#   description = Faker::Lorem.paragraph(4)
+#   Project.create!(title: title, description: description)
+# end
