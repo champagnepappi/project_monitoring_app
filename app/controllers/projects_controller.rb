@@ -22,6 +22,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def show
+    @project = Project.find_by(id: params[:id])
+  end
+
   def approve
     project = Project.find_by(id: params[:id])
     if project.update_attribute(:status, params[:status])
