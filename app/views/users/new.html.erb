@@ -17,8 +17,8 @@
             <%= f.email_field :email %>
         </div>
         <%= hidden_field_tag :role, @user.role %>
-        <% unless @user.role="lecturer"%>
-            <%= render 'lec', locals: {f: f} %>
+        <% if @user.role="user"%>
+            <%= render :partial => 'users/lec', locals: {f: f} %>
             <% end %>
         <div class="medium-12 columns">
             <%= f.label :password %>
