@@ -6,10 +6,10 @@ class User < ApplicationRecord
   before_create :create_activation_digest
   validates :first_name, presence: true, length: {maximum: 40}
   validates :last_name, presence: true, length: {maximum: 40}
-  validates :reg_no,   length: {maximum: 20}, uniqueness: true
-  # validates :gender
-  # validates :department
-  # validates :course_taken
+  validates :reg_no, presence: true, length: {maximum: 20}, uniqueness: true
+  validates :gender, presence: true
+  validates :department, presence: true
+  validates :course_taken, presence: true
   
    VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
      validates :email, presence: true,length: {maximum: 100},
