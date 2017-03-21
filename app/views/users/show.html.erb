@@ -4,5 +4,7 @@
         <p>Name: <%= @user.first_name %></p>
         <p>Course Taken: <%= @user.course_taken %></p>
         <p>Email: <%= @user.email %></p>
+        <% if current_user?(@user)%>
         <p><%= link_to "Submit your project", new_project_path %></p>
+        <% end %>
 </div>

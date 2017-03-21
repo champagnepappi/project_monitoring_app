@@ -1,6 +1,6 @@
 <% provide(:title, "Users")%>
 <div class="medium-12">
-    <table>
+    <table >
         <thead>
             <tr>
                 <th>Id</th>
@@ -10,14 +10,16 @@
             </tr>
         </thead>
         <% @users.each do |user| %>
+            <tbody>
             <tr>
                 <td> <%= user.id %></td>
-                <td> <%= user.first_name %></td>
+                <td> <%= link_to user.first_name, user %></td>
                 <%  user.projects.each do |p| %>
                     <td> <%= p.title %></td>
                     <td> <%= p.status %></td>
                 <% end %>
             </tr>
+            </tbody>
         <% end %>
     </table>
 
