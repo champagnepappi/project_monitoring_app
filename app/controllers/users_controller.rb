@@ -4,6 +4,10 @@ class UsersController < ApplicationController
   before_action :already_signed_in, only: [:new]
 
 
+  def index
+    @users = User.user
+  end
+
   def new
     @user = User.new
   end
