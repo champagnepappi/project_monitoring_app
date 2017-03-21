@@ -5,12 +5,18 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
+                <th>Projects</th>
+                <th>Status</th>
             </tr>
         </thead>
         <% @users.each do |user| %>
             <tr>
                 <td> <%= user.id %></td>
                 <td> <%= user.first_name %></td>
+                <%  user.projects.each do |p| %>
+                    <td> <%= p.title %></td>
+                    <td> <%= p.status %></td>
+                <% end %>
             </tr>
         <% end %>
     </table>
