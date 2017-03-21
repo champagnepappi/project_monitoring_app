@@ -7,12 +7,14 @@
                 <tr>
                     <th>Id</th>
                     <th>Project</th>
+                    <th>Student</th>
                 </tr>
             </thead>
             <% @submitted.each do |submitted| %>
                 <tr>
                     <td> <%= submitted.id %></td>
                     <td> <%= link_to submitted.title , submitted %></td>
+                    <td> <%= link_to submitted.user.first_name, submitted.user %></td>
                     <td> <%= link_to "approve", approve_path(id: submitted.id, status: "approved" ), class: "button small" %></td>
                     <td> <%= link_to "reject", reject_path(id: submitted.id, status: "rejected" ), class: "button small" %></td>
                 </tr>
