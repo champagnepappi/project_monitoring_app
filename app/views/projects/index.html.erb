@@ -34,7 +34,7 @@
                 <% @approved.each do |approved|%>
                     <tr>
                         <td> <%= approved.id %></td>
-                        <td> <%= approved.title %></td>
+                        <td> <%= link_to approved.title, approved %></td>
                     </tr>
                     <% end %>
         </table>
