@@ -5,9 +5,10 @@ class User < ApplicationRecord
   before_save :downcase_email
   before_save {self.first_name = first_name.capitalize}
   before_save {self.last_name = last_name.capitalize}
+  name_regex = /\A[a-z]+\Z/i
   before_create :create_activation_digest
-  validates :first_name, presence: true, length: {maximum: 40}
-  validates :last_name, presence: true, length: {maximum: 40}
+  validates :first_name, presence: true, length: {maximum: 40}, format: {with: name_regex}
+  validates :last_name, presence: true, length: {maximum: 40}, format: {with: name_regex}
   validates :reg_no, presence: true, length: {maximum: 20}, uniqueness: true
   validates :gender, presence: true
   validates :department, presence: true
