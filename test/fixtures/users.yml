@@ -13,11 +13,15 @@ karam:
   activated: true
   activated_at: <%= Time.zone.now %>
 
-two:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
-  reg_no: MyString
-  gender: MyString
-  department: MyString
-  course_taken: MyString
+glorious:
+  first_name: glorious
+  last_name: vuyanzi
+  email: glo@gmail.com
+  reg_no: COM/1331/15
+  gender: Female
+  department: Computer Science
+  course_taken: Computer Science
+  password_digest: <%= User.digest('password')%>
+  admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
