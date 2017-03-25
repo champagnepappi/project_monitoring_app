@@ -27,4 +27,11 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to login_path
   end
 
+  test "redirect edit when logged in as wrong user" do
+    log_in_as(@user2)
+    get edit_user_path(@user)
+    assert flash.empty?
+    assert_redirected_to root_path
+  end
+
 end
