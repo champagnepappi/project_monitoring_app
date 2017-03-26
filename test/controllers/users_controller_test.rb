@@ -34,6 +34,11 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_path
   end
 
+  test "redirect index if not logged in" do
+    get users_path
+    assert_redirected_to login_url
+  end
+
   test "redirect update when wrong user logs in" do
     log_in_as(@user2)
     patch user_path(@user), params: {
