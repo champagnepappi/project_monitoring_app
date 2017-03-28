@@ -23,15 +23,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def new_lec
-    lec = User.new(user_params)
-    if lec.save
-      redirect_to lec
-    else
-      render 'new_lec'
-    end
-  end
-  
   def show
     @user = User.find_by(id: params[:id])
   end
@@ -52,14 +43,9 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    # params.require(:user).permit(:first_name, :last_name, :email, :reg_no, :gender, :department, :course_taken, :password, 
-    #                             :password_confirmation)
-    params.require(:user).permit(permitted_attributes)
-  end
-
-  def lec_params
-    params.require(:user).permit(:first_name, :last_name, :email,:password,
+    params.require(:user).permit(:first_name, :last_name, :email, :reg_no, :gender, :department, :course_taken, :password, 
                                 :password_confirmation)
+    # params.require(:user).permit(policy(:user).permitted_attributes)
   end
 
   # def logged_in_user
