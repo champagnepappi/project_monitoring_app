@@ -2,37 +2,14 @@
 <div class="medium-6 medium-centered">
     <h1>Register Here</h1>
     <div>
-    <%= form_for(@user) do |f| %>
-        <%= render 'shared/error_messages', object: f.object %>
-        <div class="medium-6 columns">
-            <%= f.label :first_name %>
-            <%= f.text_field :first_name %>
-        </div>
-        <div class="medium-6 columns">
-            <%= f.label :last_name %>
-            <%= f.text_field :last_name %>
-        </div>
-        <div class="medium-12 columns">
-            <%= f.label :email %>
-            <%= f.email_field :email %>
-        </div>
         <%= hidden_field_tag :role, @user.role %>
-        <% if @user.role="user"%>
-            <%= render :partial => 'users/lec', locals: {f: f} %>
-            <% end %>
-        <div class="medium-12 columns">
-            <%= f.label :password %>
-            <%= f.password_field :password %>
-        </div>
-        <div class="medium-12 columns">
-            <%= f.label :password_confirmation %>
-            <%= f.password_field :password_confirmation %>
-        </div>
-        <div class="medium-12 columns">
-            <%= f.submit "Register", class: "button" %>
-        </div>
-
-    <% end %>
+        <% if @user.role == 'user'%>
+            <%# <%= render :partial => 'users/std', locals: {f: f} %1> %>
+            <%= render 'users/std' %>
+        <% elsif @user.role == 'lecturer'%>
+            <%# <%= render :partial => 'users/lec', locals: {f: f} %1> %>
+            <%= render 'users/lec' %>
+        <% end %>
     </div>
 </div>
 
