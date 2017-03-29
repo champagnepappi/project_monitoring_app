@@ -1,2 +1,33 @@
-<h1>Lecturers#new</h1>
-<p>Find me in app/views/lecturers/new.html.erb</p>
+<% provide(:title, "Signup")%>
+<div class="medium-6 medium-centered">
+    <h1>Register Here</h1>
+    <div>
+    <%= form_for(@lec) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <div class="medium-6 columns">
+            <%= f.label :first_name %>
+            <%= f.text_field :first_name %>
+        </div>
+        <div class="medium-6 columns">
+            <%= f.label :last_name %>
+            <%= f.text_field :last_name %>
+        </div>
+        <div class="medium-12 columns">
+            <%= f.label :email %>
+            <%= f.email_field :email %>
+        </div>
+        <div class="medium-12 columns">
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+        </div>
+        <div class="medium-12 columns">
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation %>
+        </div>
+        <div class="medium-12 columns">
+            <%= f.submit "Register", class: "button" %>
+        </div>
+
+    <% end %>
+    </div>
+</div>
