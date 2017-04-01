@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   enum role: {user: 0, lecturer: 1}
   has_many :projects
+  belongs_to :profile, polymorphic: true
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save :downcase_email
   before_save {self.first_name = first_name.capitalize}
