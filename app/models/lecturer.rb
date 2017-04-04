@@ -1,2 +1,2 @@
-class Lecturer < User
+class Lecturer < ApplicationRecord
 end
