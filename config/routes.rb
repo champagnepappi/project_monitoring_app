@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'lecturers/new'
+
   get 'projects/new'
 
 
