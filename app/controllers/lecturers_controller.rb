@@ -6,6 +6,7 @@ class LecturersController < ApplicationController
   def create
     @lec = Lecturer.new(lec_params)
     if @lec.save
+      redirect_to @lec
     else
       render 'new'
     end
