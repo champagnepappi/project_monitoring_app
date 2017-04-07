@@ -12,6 +12,10 @@ class LecturersController < ApplicationController
     end
   end
 
+  def show
+    @lec = Lecturer.find_by(id: params[:id])
+  end
+
   private
   def lec_params
     params.require(:lecturer).permit(:first_name, :last_name, :email, :password, :password_confirmation)
