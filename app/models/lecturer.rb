@@ -16,4 +16,10 @@ class Lecturer < ApplicationRecord
   def Lecturer.new_token
     SecureRandom.urlsafe_base64
   end
+
+  private
+  def create_activation_digest
+    self.activation_token = Lecturer.new_token
+    self.activation_digest = Lecturer.digest(activation_token)
+  end
 end
