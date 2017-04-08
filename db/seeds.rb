@@ -53,13 +53,13 @@ user = User.create!(
 
 end
 
-users = User.order(:created_at).take(6)
-1.times do
-  title = Faker::Commerce.product_name
-  description = Faker::Lorem.paragraph(4)
-  users.each {|user|
-  user.projects.create!(title: title, description: description)
-  }
+# users = User.order(:created_at).take(6)
+# 1.times do
+#   title = Faker::Commerce.product_name
+#   description = Faker::Lorem.paragraph(4)
+#   users.each {|user|
+#   user.projects.create!(title: title, description: description)
+#   }
   
-end
+# end
 
