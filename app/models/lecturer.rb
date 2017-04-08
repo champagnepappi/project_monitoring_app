@@ -1,5 +1,5 @@
 class Lecturer < ApplicationRecord
-  attr_accessor :activation_token, :remember_token
+  attr_accessor :activation_token, :remember_token, :reset_token
   before_save {self.first_name = first_name.capitalize}
   before_save {self.last_name = last_name.capitalize}
   before_create :create_activation_digest
