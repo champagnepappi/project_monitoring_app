@@ -42,6 +42,10 @@ class Lecturer < ApplicationRecord
     UserMailer.account_activation(self).deliver_now
   end
 
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
+  end
+
   def authenticated?(attribute, token)
     digest = send("#{attribute}_digest")
     return false if digest.nil?
