@@ -2,6 +2,7 @@ class Lecturer < ApplicationRecord
   attr_accessor :activation_token
   before_save {self.first_name = first_name.capitalize}
   before_save {self.last_name = last_name.capitalize}
+  before_create :create_activation_digest
   name_regex = /\A[a-z]+\Z/i
   validates :first_name, presence: true, length: {maximum: 40}, format: {with: name_regex}
   validates :last_name, presence: true, length: {maximum: 40}, format: {with: name_regex}
