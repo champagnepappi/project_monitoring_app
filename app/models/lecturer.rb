@@ -24,6 +24,11 @@ class Lecturer < ApplicationRecord
     SecureRandom.urlsafe_base64
   end
 
+  def remember
+    self.remember_token = Lecturer.new_token
+    update_attribute(:remember_digest, Lecturer.digest(remember_token))
+  end
+
   def activate
     update_attribute(:activated, true)
     update_attribute(:activated_at, Time.zone.now)
