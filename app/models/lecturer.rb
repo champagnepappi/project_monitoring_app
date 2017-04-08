@@ -29,6 +29,10 @@ class Lecturer < ApplicationRecord
     update_attribute(:remember_digest, Lecturer.digest(remember_token))
   end
 
+  def forget
+    update_attribute(:remember_digest, nil)
+  end
+
   def activate
     update_attribute(:activated, true)
     update_attribute(:activated_at, Time.zone.now)
