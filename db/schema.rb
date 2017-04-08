@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170408115119) do
+ActiveRecord::Schema.define(version: 20170408115857) do
 
   create_table "lecturers", force: :cascade do |t|
     t.datetime "created_at",                        null: false
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20170408115119) do
     t.boolean  "activated",         default: false
     t.datetime "activated_at"
     t.boolean  "admin",             default: false
+    t.string   "remember_digest"
   end
 
   create_table "projects", force: :cascade do |t|
