@@ -1,0 +1,6 @@
+<% provide(:title, @lec.first_name)%>
+<div class="row">
+        <p> <%= gravatar_for @lec %></p>
+        <p>Name: <%= @lec.first_name %></p>
+        <p>Email: <%= @lec.email %></p>
+</div>
