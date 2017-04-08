@@ -46,6 +46,12 @@ class Lecturer < ApplicationRecord
     UserMailer.password_reset(self).deliver_now
   end
 
+  def create_reset_digest
+    self.reset_token = Lecturer.new_token
+    update_attribute(:reset_digest, Lecturer.digest(reset_token))
+    update_attribute(:reset_sent_at, Time.zone.now)
+  end
+
   def authenticated?(attribute, token)
     digest = send("#{attribute}_digest")
     return false if digest.nil?
