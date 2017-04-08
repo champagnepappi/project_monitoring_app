@@ -24,6 +24,12 @@ class Lecturer < ApplicationRecord
     SecureRandom.urlsafe_base64
   end
 
+  def authenticated?(attribute, token)
+    digest = send("#{attribute}_digest")
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password?(token)
+  end
+
   private
   def create_activation_digest
     self.activation_token = Lecturer.new_token
