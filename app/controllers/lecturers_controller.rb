@@ -6,7 +6,9 @@ class LecturersController < ApplicationController
   def create
     @lec = Lecturer.new(lec_params)
     if @lec.save
-      redirect_to @lec
+      @lec.send_activation_email
+      flash[:info] = "Please check your email to activate your account"
+      redirect_to root_url
     else
       render 'new'
     end
