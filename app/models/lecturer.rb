@@ -1,4 +1,5 @@
 class Lecturer < ApplicationRecord
+  attr_accessor :activation_token
   before_save {self.first_name = first_name.capitalize}
   before_save {self.last_name = last_name.capitalize}
   name_regex = /\A[a-z]+\Z/i
