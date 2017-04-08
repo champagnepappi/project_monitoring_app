@@ -12,4 +12,8 @@ class Lecturer < ApplicationRecord
 
   has_secure_password
   validates :password, length: { minimum: 6 }, allow_blank: true
+
+  def Lecturer.new_token
+    SecureRandom.urlsafe_base64
+  end
 end
