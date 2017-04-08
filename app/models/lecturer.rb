@@ -52,6 +52,10 @@ class Lecturer < ApplicationRecord
     update_attribute(:reset_sent_at, Time.zone.now)
   end
 
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
+  end
+
   def authenticated?(attribute, token)
     digest = send("#{attribute}_digest")
     return false if digest.nil?
