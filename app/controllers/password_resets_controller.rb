@@ -39,7 +39,11 @@ class PasswordResetsController < ApplicationController
   private
 
   def user_params
+    if params.has_key? :user
     params.require(:user).permit(:password, :password_confirmation)
+    else
+    params.require(:lecturer).permit(:password, :password_confirmation)
+    end
   end
 
   def get_user
@@ -55,7 +59,11 @@ class PasswordResetsController < ApplicationController
   end
    
   def password_blank?
+    if params.has_key? :user
     params[:user][:password].blank?
+    else
+      params[:lecturer][:password].blank?
+    end
   end
 
   def check_expiration
