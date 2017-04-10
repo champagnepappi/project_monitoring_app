@@ -6,12 +6,14 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:session][:email].downcase) ||
-       Lecturer.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password]) 
-      if user.activated? 
-        log_in user 
-        params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-        redirect_back_or user 
+      lec =  Lecturer.find_by(email: params[:session][:email].downcase)
+    if user && user.authenticate(params[:session][:password]) ||
+     lec && lec.authenticate(params[:session][:password]) 
+      if user.activated? || lec.activated?
+        log_in user || lec
+        params[:session][:remember_me] == '1' ? remember(user) : forget(user) ||
+        params[:session][:remember_me] == '1' ? remember(lec) : forget(lec) 
+        redirect_back_or user || lec
       else
         message = "Account not activated"
         message += "Check your email for activation link"
