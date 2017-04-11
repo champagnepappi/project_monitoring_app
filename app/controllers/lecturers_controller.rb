@@ -22,6 +22,16 @@ class LecturersController < ApplicationController
     @lec = Lecturer.find_by(id: params[:id])
   end
 
+  def update
+    @lec = Lecturer.find_by(id: params[:id])
+    if @lec.update_attributes(lec_params)
+      flash[:success] = "Profile successfully updated"
+      redirect_to @lec
+    else
+      render 'edit'
+    end
+  end
+
   private
   def lec_params
     params.require(:lecturer).permit(:first_name, :last_name, :email, :password, :password_confirmation)
