@@ -43,5 +43,8 @@ class LecSignupTest < ActionDispatch::IntegrationTest
     #invalid activation token
     get edit_account_activation_path("invalid")
     assert_not is_logged_in?
+    #valid token, wrong email
+    get edit_account_activation_path(lec.activation_token, email: "dqwrq")
+    assert_not is_logged_in?
   end
 end
