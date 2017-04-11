@@ -35,5 +35,7 @@ class LecSignupTest < ActionDispatch::IntegrationTest
       }
     end
     assert_equal 1, ActionMailer::Base.deliveries.size
+    lec = assigns(:lec)
+    assert_not lec.activated?
   end
 end
