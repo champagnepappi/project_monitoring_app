@@ -22,15 +22,6 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
-
-  def new_lec
-    lec = User.new(user_params)
-    if lec.save
-      redirect_to lec
-    else
-      render 'new_lec'
-    end
-  end
   
   def show
     @user = User.find_by(id: params[:id])
@@ -56,18 +47,6 @@ class UsersController < ApplicationController
                                 :password_confirmation)
   end
 
-  def lec_params
-    params.require(:user).permit(:first_name, :last_name, :email,:password,
-                                :password_confirmation)
-  end
-
-  # def logged_in_user
-  #   unless logged_in?
-  #     store_location
-  #     flash[:danger] = "Please log in"
-  #     redirect_to login_url
-  #   end
-  # end
 
   def correct_user
     @user = User.find_by(id: params[:id])
