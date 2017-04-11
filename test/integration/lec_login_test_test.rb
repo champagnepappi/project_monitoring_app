@@ -1,6 +1,10 @@
 require 'test_helper'
 
 class LecLoginTestTest < ActionDispatch::IntegrationTest
+  def setup
+    @lec = lecturers(:ritah)
+  end
+
   test "login with invalid info" do
    get login_path 
    assert_template 'sessions/new'
@@ -15,4 +19,5 @@ class LecLoginTestTest < ActionDispatch::IntegrationTest
    get root_path
    assert flash.empty?
   end
+
 end
