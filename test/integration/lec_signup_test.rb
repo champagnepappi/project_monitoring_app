@@ -34,5 +34,6 @@ class LecSignupTest < ActionDispatch::IntegrationTest
         }
       }
     end
+    assert_equal 1, ActionMailer::Base.deliveries.size
   end
 end
