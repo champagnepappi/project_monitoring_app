@@ -18,6 +18,10 @@ class LecturersController < ApplicationController
     @lec = Lecturer.find_by(id: params[:id])
   end
 
+  def edit
+    @user = Lecturer.find_by(id: params[:id])
+  end
+
   private
   def lec_params
     params.require(:lecturer).permit(:first_name, :last_name, :email, :password, :password_confirmation)

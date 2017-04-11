@@ -11,8 +11,8 @@ class SessionsController < ApplicationController
      lec && lec.authenticate(params[:session][:password]) 
       if user.activated? || lec.activated?
         log_in user || lec
-        params[:session][:remember_me] == '1' ? remember(user) : forget(user) ||
-        params[:session][:remember_me] == '1' ? remember(lec) : forget(lec) 
+        params[:session][:remember_me] == '1' ? remember(user) : forget(user) 
+        # params[:session][:remember_me] == '1' ? remember(lec) : forget(lec) 
         redirect_back_or user || lec
       else
         message = "Account not activated"
