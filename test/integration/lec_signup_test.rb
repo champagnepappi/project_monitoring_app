@@ -37,5 +37,8 @@ class LecSignupTest < ActionDispatch::IntegrationTest
     assert_equal 1, ActionMailer::Base.deliveries.size
     lec = assigns(:lec)
     assert_not lec.activated?
+    #login before activation
+    log_in_as(lec)
+    assert_not is_logged_in?
   end
 end
