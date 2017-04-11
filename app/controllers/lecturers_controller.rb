@@ -19,7 +19,7 @@ class LecturersController < ApplicationController
   end
 
   def edit
-    @user = Lecturer.find_by(id: params[:id])
+    @lec = Lecturer.find_by(id: params[:id])
   end
 
   private
