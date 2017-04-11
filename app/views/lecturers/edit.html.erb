@@ -1,0 +1,34 @@
+<% provide(:title, "Edit Information")%>
+<div class="medium-6 medium-centered">
+    <h1>Edit Profile</h1>
+    <div>
+    <%= form_for(@lec) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <div class="medium-6 columns">
+            <%= f.label :first_name %>
+            <%= f.text_field :first_name %>
+        </div>
+        <div class="medium-6 columns">
+            <%= f.label :last_name %>
+            <%= f.text_field :last_name %>
+        </div>
+        <div class="medium-12 columns">
+            <%= f.label :email %>
+            <%= f.email_field :email %>
+        </div>
+        <div class="medium-12 columns">
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+        </div>
+        <div class="medium-12 columns">
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation %>
+        </div>
+        <div class="medium-12 columns">
+            <%= f.submit "Save Changes", class: "button" %>
+        </div>
+
+    <% end %>
+    </div>
+</div>
+T 
