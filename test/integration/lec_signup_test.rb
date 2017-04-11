@@ -1,6 +1,9 @@
 require 'test_helper'
 
 class LecSignupTest < ActionDispatch::IntegrationTest
+  def setup
+    ActionMailer::Base.deliveries.clear
+  end
   
   test "invalid signup" do
     get new_lecturer_path
