@@ -40,5 +40,8 @@ class LecSignupTest < ActionDispatch::IntegrationTest
     #login before activation
     log_in_as(lec)
     assert_not is_logged_in?
+    #invalid activation token
+    get edit_account_activation_path("invalid")
+    assert_not is_logged_in?
   end
 end
