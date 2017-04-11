@@ -10,20 +10,18 @@
                 <% unless logged_in? %>
                     <li> <%= link_to fa_icon('sign-in', text: "Login"), login_path %></li>
                 <% else %>
-                    <% if current_std.admin? || current_lec.admin?%>
+                    <% if current_user.admin?%>
                         <li> <%= link_to fa_icon('folder-open', text: "Projects"), projects_path %></li>
                     <% end %>
                     <li> <%= link_to fa_icon('sign-out', text: "Logout"), logout_path, method: :delete %></li>
+                    <li> <%= link_to fa_icon('users', text: "Users"), users_path %></li>
                     <% if current_lec %>
                         <li> <%= link_to fa_icon('user', text: "Profile"), current_lec %></li>
                         <li> <%= link_to fa_icon('pencil', text: "Settings"),edit_lecturer_path(current_lec) %></li>
+                    <% elsif current_user || current_user.admin? %>
+                        <li> <%= link_to fa_icon('user', text: "Profile"), current_user %></li>
+                        <li> <%= link_to fa_icon('pencil', text: "Settings"),edit_user_path(current_user) %></li>
                     <% end %>
-                    <% if current_std  %>
-                        <li> <%= link_to fa_icon('user', text: "Profile"), current_std %></li>
-                        <li> <%= link_to fa_icon('pencil', text: "Settings"),edit_user_path(current_std) %></li>
-                    <% end %>
-
-                    <li> <%= link_to fa_icon('users', text: "Users"), users_path %></li>
                 <% end %>
             </ul>
         </div>
