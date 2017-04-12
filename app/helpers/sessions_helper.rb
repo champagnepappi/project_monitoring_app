@@ -37,7 +37,11 @@ module SessionsHelper
   end
 
   def logged_in?
+    if current_user
     !current_user.nil?
+    elsif current_lec
+      !current_lec.nil?
+    end
   end
 
   def log_out
