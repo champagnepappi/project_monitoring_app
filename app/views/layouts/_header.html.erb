@@ -10,7 +10,7 @@
                 <% unless logged_in? %>
                     <li> <%= link_to fa_icon('sign-in', text: "Login"), login_path %></li>
                 <% else %>
-                    <% if current_user.admin?%>
+                    <% if current_user && current_user.admin? || current_lec && current_lec.admin? %>
                         <li> <%= link_to fa_icon('folder-open', text: "Projects"), projects_path %></li>
                     <% end %>
                     <li> <%= link_to fa_icon('sign-out', text: "Logout"), logout_path, method: :delete %></li>
