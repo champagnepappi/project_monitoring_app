@@ -49,7 +49,11 @@ module SessionsHelper
   end
 
   def log_out
+    if current_user
     forget(current_user)
+    else
+      forget(current_lec)
+    end
     session.delete(:user_id)
     @current_user = nil
   end
