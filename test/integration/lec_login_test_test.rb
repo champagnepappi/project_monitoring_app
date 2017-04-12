@@ -3,6 +3,7 @@ require 'test_helper'
 class LecLoginTestTest < ActionDispatch::IntegrationTest
   def setup
     @lec = lecturers(:naish)
+    @admin = lecturers(:ritah)
   end
 
   test "login with invalid info" do
@@ -44,5 +45,6 @@ class LecLoginTestTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", logout_path, count: 0
     
   end
+
 
 end
