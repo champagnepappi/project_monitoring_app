@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   def already_signed_in
-    if current_user
+    if current_user || current_lec
       redirect_to root_url
       flash[:info] = "You are already signed in"
     end
