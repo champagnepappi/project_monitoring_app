@@ -1,4 +1,6 @@
 class LecturersController < ApplicationController
+  before_action :correct_lec, only: [:edit, :update]
+
   def new
     @lec = Lecturer.new
   end
