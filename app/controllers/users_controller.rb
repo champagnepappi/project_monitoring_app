@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find_by(id: params[:id])
-    @projects = @user.documents.approved
+    @projects = @user.projects.approved
   end
 
   def edit
