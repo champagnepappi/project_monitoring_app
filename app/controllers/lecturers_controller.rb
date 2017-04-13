@@ -1,5 +1,6 @@
 class LecturersController < ApplicationController
   before_action :correct_lec, only: [:edit, :update]
+  before_action :already_signed_in, only: [:new]
 
   def new
     @lec = Lecturer.new
