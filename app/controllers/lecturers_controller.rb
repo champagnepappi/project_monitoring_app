@@ -36,4 +36,9 @@ class LecturersController < ApplicationController
   def lec_params
     params.require(:lecturer).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
+
+  def correct_lec
+    @lec = Lecturer.find_by(id: params[:id])
+    redirect_to(root_url) unless current_user?(@lec)
+  end
 end
