@@ -1,4 +1,5 @@
 class LecturersController < ApplicationController
+  before_action :logged_in_user, except: [:new, :create]
   before_action :correct_lec, only: [:edit, :update]
   before_action :already_signed_in, only: [:new]
 
