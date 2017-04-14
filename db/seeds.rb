@@ -15,6 +15,16 @@ admin = User.create!(
   activated_at: Time.zone.now
 )
 
+lec = Lecturer.create!(
+  first_name: "David",
+  last_name: "Santon",
+  email: "david@gmail.com",
+  password: "hacked",
+  password_confirmation: "hacked",
+  admin: true,
+  activated: true,
+  activated_at: Time.zone.now
+)
 user = User.create!(
   first_name: "Jane",
   last_name: "Sharon",

@@ -59,12 +59,14 @@ module SessionsHelper
 
   def log_out
     if current_user
-    forget(current_user)
+      forget(current_user)
+      session.delete(:user_id)
+      @current_user = nil
     else
       forget(current_lec)
+      session.delete(:user_id)
+      @current_lec = nil
     end
-    session.delete(:user_id)
-    @current_user = nil
   end
 
   def redirect_back_or(default)
