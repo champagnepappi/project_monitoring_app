@@ -9,11 +9,14 @@ class SessionsController < ApplicationController
       lec =  Lecturer.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password]) ||
      lec && lec.authenticate(params[:session][:password]) 
-      if user.activated? || lec.activated?
-        log_in user || lec
+      if user.activated? 
+        log_in user 
         params[:session][:remember_me] == '1' ? remember(user) : forget(user) 
-        # params[:session][:remember_me] == '1' ? remember(lec) : forget(lec) 
-        redirect_back_or user || lec
+        redirect_back_or user 
+      elsif lec.activated?
+        log_in lec
+        params[:session][:remember_me] == '1' ? remember(lec) : forget(lec) 
+        redirect_back_or lec 
       else
         message = "Account not activated"
         message += "Check your email for activation link"
