@@ -3,6 +3,7 @@ require 'test_helper'
 class LecturersControllerTest < ActionDispatch::IntegrationTest
   def setup
     @lec = lecturers(:ritah)
+    @lec2 = lecturers(:naish)
   end
 
   test "should get new" do
