@@ -16,4 +16,14 @@ class LecturersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to login_path
   end
 
+  test "should redirect update when not logged in" do
+    patch lecturer_path(@lec), params: {
+      lecturer: {
+        first_name: @lec.first_name,
+        email: @lec.email
+      }
+    }
+    assert_redirected_to login_path
+  end
+
 end
