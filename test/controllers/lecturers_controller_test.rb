@@ -34,4 +34,13 @@ class LecturersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_path
   end
 
+  test "redirect update when wrong lecturer logs in" do
+    log_in_as(@lec2)
+    patch lecturer_path(@lec), params: {
+      lecturer: {
+        first_name: @lec.first_name,
+        email: @lec.email
+      }
+    }
+  end
 end
