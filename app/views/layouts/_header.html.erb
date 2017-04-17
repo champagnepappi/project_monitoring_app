@@ -13,11 +13,11 @@
                     <% end %>
                     <li> <%= link_to fa_icon('sign-out', text: "Logout"), logout_path, method: :delete %></li>
                     <li> <%= link_to fa_icon('users', text: "Users"), users_path %></li>
-                    <% if current_user?(current_lec)  %>
+                    <% if current_lec && !current_user?(current_user)  %>
                         <li> <%= link_to fa_icon('user', text: "Profile"), current_lec %></li>
                         <li> <%= link_to fa_icon('pencil', text: "Settings"),edit_lecturer_path(current_lec) %></li>
                         <% end %>
-                    <% if  current_user?(current_user) %>
+                    <% if  current_user && !current_user?(current_lec) %>
                         <li> <%= link_to fa_icon('user', text: "Profile"), current_user %></li>
                         <li> <%= link_to fa_icon('pencil', text: "Settings"),edit_user_path(current_user) %></li>
                     <% end %>
