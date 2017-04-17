@@ -42,5 +42,6 @@ class LecturersControllerTest < ActionDispatch::IntegrationTest
         email: @lec.email
       }
     }
+    assert_redirected_to root_path
   end
 end
