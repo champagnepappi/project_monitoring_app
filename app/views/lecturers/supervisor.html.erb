@@ -1,10 +1,12 @@
 <% provide(:title, "Supervisors")%>
 <div class="medium-12">
+    <h2>Choose supervisor to assign student</h2>
     <table>
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
+                <th>action</th>
             </tr>
         </thead>
         <% @supervisors.each do |sup|%>
@@ -12,6 +14,7 @@
                 <tr>
                     <td> <%= sup.id %></td>
                     <td> <%= link_to sup.first_name, sup %></td>
+                    <td> <%= link_to "assign student", '#', class: "button" %></td>
                 </tr>
             </tbody>
         <% end %>
