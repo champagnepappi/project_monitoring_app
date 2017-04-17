@@ -1,0 +1,19 @@
+<% provide(:title, "Supervisors")%>
+<div class="medium-12">
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <% @supervisors.each do |sup|%>
+            <tbody>
+                <tr>
+                    <td> <%= sup.id %></td>
+                    <td> <%= link_to sup.first_name, sup %></td>
+                </tr>
+            </tbody>
+        <% end %>
+    </table>
+</div>
