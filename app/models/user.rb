@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   enum role: {user: 0, lecturer: 1}
+  enum status: {not_assigned: 0, assigned: 1} 
   has_many :projects
-  belongs_to :lecturer
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save :downcase_email
   before_save {self.first_name = first_name.capitalize}
