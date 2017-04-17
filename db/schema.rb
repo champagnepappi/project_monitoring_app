@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(version: 20170417094218) do
     t.boolean  "admin",             default: false
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
-    t.integer  "role",              default: 0
     t.integer  "status",            default: 0
   end
 
