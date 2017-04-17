@@ -42,6 +42,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def assign
+    user = User.find_by(id: params[:id])
+    user.update_attribute(:status, params[:status])
+  end
+
   private
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :reg_no, :gender, :department, :course_taken, :password, 
