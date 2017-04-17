@@ -40,6 +40,11 @@ class LecturersController < ApplicationController
     end
   end
 
+  def supervisor
+    @supervisors = Lecturer.all
+    @student = User.find_by(id: params[:user_id])
+  end    
+
   private
   def lec_params
     params.require(:lecturer).permit(:first_name, :last_name, :email, :password, :password_confirmation)
