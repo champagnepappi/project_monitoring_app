@@ -1,4 +1,5 @@
 class Lecturer < ApplicationRecord
+  has_many :users
   enum role: {lecturer: 0, admin: 1}
   attr_accessor :activation_token, :remember_token, :reset_token
   before_save {self.first_name = first_name.capitalize}
