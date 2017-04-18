@@ -22,7 +22,8 @@
                         <li> <%= link_to fa_icon('pencil', text: "Settings"),edit_user_path(current_user) %></li>
                     <% end %>
                 <% else %>
-                    <li> <%= link_to fa_icon('sign-in', text: "Login"), login_path %></li>
+                    <li> <%= link_to fa_icon('sign-in', text: "Login student"), login_path %></li>
+                    <li> <%= link_to fa_icon('sign-in', text: "Login lec"), loginlec_path %></li>
                 <% end %>
             </ul>
         </div>
