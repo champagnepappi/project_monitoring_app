@@ -47,13 +47,23 @@ class PasswordResetsController < ApplicationController
   end
 
   def get_user
-    @user = User.find_by(email: params[:email]) ||
-        Lecturer.find_by(email: params[:email])
+    @user = User.find_by(email: params[:email])
+  end
+
+  def get_lec
+    @lec = Lecturer.find_by(email: params[:email])
   end
 
   def valid_user
     unless (@user && @user.activated? && 
            @user.authenticated?(:reset, params[:id]))
+      redirect_to root_url
+    end
+  end
+
+  def valid_lec
+    unless (@lec && @lec.activated? && 
+           @lec.authenticated?(:reset, params[:id]))
       redirect_to root_url
     end
   end
