@@ -4,6 +4,10 @@ module SessionsHelper
     session[:user_id] = user.id
   end
 
+  def login(lec)
+    session[:lec_id] = lec.id
+  end
+
   def current_user
     if(user_id = session[:user_id])
       @current_user ||= User.find_by(id: user_id)
@@ -18,12 +22,12 @@ module SessionsHelper
 
   def current_lec
     # Lecturer.find_by(id: session[:user_id])
-    if(user_id = session[:user_id])
-      @current_lec ||= Lecturer.find_by(id: user_id)
-    elsif (user_id = cookies.signed[:user_id])
-      lec = Lecturer.find_by(id: user_id)
+    if(lec_id = session[:lec_id])
+      @current_lec ||= Lecturer.find_by(id: lec_id)
+    elsif (lec_id = cookies.signed[:lec_id])
+      lec = Lecturer.find_by(id: lec_id)
       if lec && lec.authenticated?(:remember, cookies[:remember_token])
-        log_in lec
+        login lec
         @current_lec = lec
       end
     end
@@ -64,7 +68,7 @@ module SessionsHelper
       @current_user = nil
     else
       forget(current_lec)
-      session.delete(:user_id)
+      session.delete(:lec_id)
       @current_lec = nil
     end
   end
