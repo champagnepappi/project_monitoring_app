@@ -29,7 +29,7 @@ class SessionsController < ApplicationController
     lec = Lecturer.find_by(email: params[:session_lec][:email].downcase) 
     if lec && lec.authenticate(params[:session_lec][:password]) 
       if lec.activated? 
-        log_in lec 
+        login lec 
         params[:session_lec][:remember_me] == '1' ? remember(lec) : forget(lec)
         redirect_back_or lec 
       else
