@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'users/new'
   
+  get 'loginlec' => 'sessions#new_lec'
+  post 'loginlec' => 'sessions#createlec'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
@@ -20,8 +22,6 @@ Rails.application.routes.draw do
   resources :projects
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
-  get 'new_lec' => 'users#new_lec'
-  # post 'new_lec' => 'users#new_lec'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
