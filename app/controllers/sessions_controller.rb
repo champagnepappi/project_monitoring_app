@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :already_signed_in, only: [:new]
+  before_action :already_signed_in, only: [:new, :new_lec]
 
   def new
   end
