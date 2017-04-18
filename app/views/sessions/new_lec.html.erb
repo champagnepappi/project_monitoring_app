@@ -1,7 +1,7 @@
 <% provide(:title, 'Login')%>
 <div class="medium-6 medium-centered">
     <h1>Login</h1>
-    <%= form_for(:session_lec, url: login_path) do |f| %>
+    <%= form_for(:session_lec, url: loginlec_path) do |f| %>
         <%= f.label :email %>
         <%= f.email_field :email %>
 
