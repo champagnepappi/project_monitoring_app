@@ -19,8 +19,10 @@
                         <td> <%= p.title %></td>
                         <td> <%= p.status %></td>
                     <% end %>
-                    <% if user.projects.any? %>
+                    <% if user.projects.any? && user.not_assigned? %>
                     <td><%= link_to "assign supervisor", supervisor_path(user_id: user.id), class: "button" %> </td>
+                <% elsif user.assigned? %>
+                    <td>assigned</td>
                     <% end %>
                 </tr>
             </tbody>
