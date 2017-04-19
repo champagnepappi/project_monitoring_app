@@ -7,7 +7,7 @@ class PasswordResetsController < ApplicationController
 
   def create
     @user = User.find_by(email: params[:password_reset][:email].downcase) ||
-      Lecturer.find_by(email: params[:password_reset][:email].downcase)
+      Lecturer.find_by(email: params[:password_reset][:lec_email].downcase)
     if @user
       @user.create_reset_digest
       @user.send_password_reset_email
@@ -51,7 +51,7 @@ class PasswordResetsController < ApplicationController
 
   def get_user
     @user = User.find_by(email: params[:email])
-    @lec = Lecturer.find_by(email: params[:email])
+     Lecturer.find_by(email: params[:lec_email])
   end
 
   def valid_user
