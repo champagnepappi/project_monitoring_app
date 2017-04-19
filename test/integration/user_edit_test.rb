@@ -17,7 +17,6 @@ class UserEditTest < ActionDispatch::IntegrationTest
           reg_no: "COM/0011/13",
           gender: "Male",
           department: "IT",
-          course_taken: "Computer Science",
           password: "",
           password_confirmation: "qwertyu"
       }
@@ -34,8 +33,7 @@ class UserEditTest < ActionDispatch::IntegrationTest
           email = "dida@g.com",
           reg_no = "COM/0011/13",
           gender = "Male",
-          department = "IT",
-          course_taken = "Computer Science"
+          department = "IT"
     patch user_path(@user), params: {
       user: {
           first_name: first_name,
@@ -44,7 +42,6 @@ class UserEditTest < ActionDispatch::IntegrationTest
           reg_no: reg_no,
           gender: gender,
           department: department,
-          course_taken: course_taken,
           password: "qwertyu",
           password_confirmation: "qwertyu"
       }
@@ -57,6 +54,5 @@ class UserEditTest < ActionDispatch::IntegrationTest
     assert_equal @user.reg_no, reg_no
     assert_equal @user.gender, gender
     assert_equal @user.department, department
-    assert_equal @user.course_taken, course_taken
   end
 end
