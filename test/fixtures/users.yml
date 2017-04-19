@@ -7,7 +7,6 @@ karam:
   reg_no: SIT/4220/15
   gender: Female
   department: IT
-  course_taken: IT
   password_digest: <%= User.digest('password')%>
   admin: true
   activated: true
@@ -20,7 +19,6 @@ glorious:
   reg_no: COM/1331/15
   gender: Female
   department: Computer Science
-  course_taken: Computer Science
   password_digest: <%= User.digest('password')%>
   admin: true
   activated: true
