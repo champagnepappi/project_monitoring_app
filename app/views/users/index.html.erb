@@ -20,9 +20,13 @@
                         <td> <%= p.status %></td>
                     <% end %>
                     <% if user.projects.any? && user.not_assigned? %>
-                    <td><%= link_to "assign supervisor", supervisor_path(user_id: user.id), class: "button" %> </td>
-                <% elsif user.assigned? %>
-                    <td>assigned</td>
+                        <% if @user || @lec %>
+                            <td><%= link_to "assign supervisor", supervisor_path(user_id: user.id), class: "button" %> </td>
+                        <% else %>
+                            <td>not assigned</td>
+                        <% end %>
+                    <% elsif user.assigned? %>
+                        <td>assigned</td>
                     <% end %>
                 </tr>
             </tbody>

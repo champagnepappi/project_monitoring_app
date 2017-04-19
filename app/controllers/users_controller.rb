@@ -6,8 +6,8 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    @user = current_user && current_user.admin? || 
-      current_lec && current_lec.admin?
+    @user = current_user && current_user.admin? 
+      @lec = current_lec && current_lec.admin?
   end
 
   def new
