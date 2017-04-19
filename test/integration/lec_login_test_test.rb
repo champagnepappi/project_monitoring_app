@@ -7,25 +7,22 @@ class LecLoginTestTest < ActionDispatch::IntegrationTest
   end
 
   test "login with invalid info" do
-   get login_path 
-   assert_template 'sessions/new'
-   post login_path, params: {
-     session: {
+   get loginlec_path 
+   post loginlec_path, params: {
+     session_lec: {
        email: "",
        password: ""
      }
    }
-   assert_template 'sessions/new'
    assert_not flash.empty?
    get root_path
    assert flash.empty?
   end
 
   test "login with valid info" do
-    get login_path
-    assert_template 'sessions/new'
-    post login_path, params: {
-      session: {
+    get loginlec_path
+    post loginlec_path, params: {
+      session_lec: {
         email: @lec.email,
         password: 'password'
       }

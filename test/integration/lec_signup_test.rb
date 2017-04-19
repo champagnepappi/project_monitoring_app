@@ -47,7 +47,7 @@ class LecSignupTest < ActionDispatch::IntegrationTest
     get edit_account_activation_path(lec.activation_token, email: "dqwrq")
     assert_not is_logged_in?
     #valid activation token
-    get edit_account_activation_path(lec.activation_token, email: lec.email)
+    get edit_account_activation_path(lec.activation_token, lec_email: lec.email)
     assert lec.reload.activated?
     follow_redirect!
     assert_template 'lecturers/show'

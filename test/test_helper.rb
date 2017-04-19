@@ -9,7 +9,7 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
   #
   def is_logged_in?
-    !session[:user_id].nil?
+    !session[:user_id].nil? || !session[:lec_id].nil?
   end
 
   def log_in_as(user, options= {})
@@ -33,7 +33,7 @@ class ActiveSupport::TestCase
     remember_me = options[:remember_me] || '1'
     if integration_test?
       post loginlec_path, params: {
-        session: {
+        session_lec: {
           email: lec.email,
           password: password,
           remember_me: remember_me

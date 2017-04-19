@@ -28,14 +28,14 @@ class LecturersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "redirect edit when logged in as wrong lecturer" do
-    log_in_as(@lec2)
+    log_in_lec(@lec2)
     get edit_lecturer_path(@lec)
     assert flash.empty?
     assert_redirected_to root_path
   end
 
   test "redirect update when wrong lecturer logs in" do
-    log_in_as(@lec2)
+    log_in_lec(@lec2)
     patch lecturer_path(@lec), params: {
       lecturer: {
         first_name: @lec.first_name,
