@@ -5,7 +5,6 @@
             <div class="medium-4 columns">
                 <p> <%= gravatar_for @user %></p>
                 <p>Name: <%= @user.first_name %></p>
-                <p>Course Taken: <%= @user.course_taken %></p>
                 <p>Email: <%= @user.email %></p>
                 <% if current_user?(@user) && !current_user.admin?%>
                     <p><%= link_to "Submit your project", new_project_path %></p>
