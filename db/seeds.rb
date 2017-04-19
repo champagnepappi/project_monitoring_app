@@ -52,7 +52,6 @@ user = User.create!(
               email: email,
               gender: gender,
               department: department,
-              course_taken: course_taken,
               password: password,
               password_confirmation: password,
               activated: true,
