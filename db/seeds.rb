@@ -7,7 +7,6 @@ admin = User.create!(
   reg_no: "COM/0040/13",
   gender: "Male",
   department: "IT",
-  course_taken: "IT",
   password: "rickmorty",
   password_confirmation: "rickmorty",
   admin: true,
@@ -32,7 +31,6 @@ user = User.create!(
   reg_no: "SIT/0020/13",
   gender: "Female",
   department: "IT",
-  course_taken: "IT",
   password: "tyrant",
   password_confirmation: "tyrant",
   admin: false,
@@ -47,7 +45,6 @@ user = User.create!(
   email = Faker::Internet.email
   gender = User::GENDER.sample
   department = User::DEPARTMENT.sample
-  course_taken = User::COURSE_TAKEN.sample
   password = "password"
   User.create!(first_name: first_name,
               last_name: last_name,
