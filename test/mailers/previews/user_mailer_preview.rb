@@ -15,4 +15,10 @@ class UserMailerPreview < ActionMailer::Preview
     UserMailer.password_reset(user)
   end
 
+  def lec_activation
+    lec = Lecturer.first
+    lec.reset_token = Lecturer.new_token
+    UserMailer.lec_activation(lec)
+  end
+
 end
