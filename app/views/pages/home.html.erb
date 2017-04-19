@@ -2,7 +2,7 @@
 <div id="sect">
     <div class="pagedata">
         <h1>Project Tracking and Monitoring Tool</h1>
-        <% unless current_user  %>
+        <% unless current_user || current_lec %>
             <%# <div class="button1"> %>
                 <%= link_to "Signup as Student", new_user_path, class: "button" %>
                 <%= link_to "Signup as Lecturer", new_lecturer_path, class: "button" %>
