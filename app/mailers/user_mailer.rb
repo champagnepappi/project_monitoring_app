@@ -11,11 +11,6 @@ class UserMailer < ApplicationMailer
     mail to: user.email, subject: "Account Activation"
   end
 
-  def lec_activation(lec)
-    @lec = lec
-    mail to: lec.email, subject: "Account activation"
-  end
-
   def password_reset(user)
     @user = user
 
