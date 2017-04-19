@@ -1,6 +1,23 @@
 <% provide(:title, @lec.first_name)%>
 <div class="row">
-        <p> <%= gravatar_for @lec %></p>
-        <p>Name: <%= @lec.first_name %></p>
-        <p>Email: <%= @lec.email %></p>
+    <div class="medium-12 columns">
+        <div id = "grav">
+            <div class="medium-4 columns">
+                <p> <%= gravatar_for @lec %></p>
+                <p>Name: <%= @lec.first_name %></p>
+                <p>Email: <%= @lec.email %></p>
+            </div>
+        </div>
+        <div class="medium-8 columns">
+            <table>
+                <h4><strong>Students assigned</strong></h4>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Project</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
 </div>
