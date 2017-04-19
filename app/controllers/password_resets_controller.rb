@@ -1,7 +1,5 @@
 class PasswordResetsController < ApplicationController
   before_action :get_user, only: [:edit, :update]
-  before_action :get_lec, only: [:edit, :update]
-  before_action :valid_lec, only: [:edit, :update]
   before_action :check_expiration, only: [:edit, :update]
 
   def new
@@ -9,7 +7,7 @@ class PasswordResetsController < ApplicationController
 
   def create
     @user = User.find_by(email: params[:password_reset][:email].downcase) ||
-        Lecturer.find_by(email: params[:password_reset][:email].downcase)
+      Lecturer.find_by(email: params[:password_reset][:email].downcase)
     if @user
       @user.create_reset_digest
       @user.send_password_reset_email
@@ -45,44 +43,38 @@ class PasswordResetsController < ApplicationController
 
   def user_params
     if params.has_key? :user
-    params.require(:user).permit(:password, :password_confirmation)
+      params.require(:user).permit(:password, :password_confirmation)
     else
-    params.require(:lecturer).permit(:password, :password_confirmation)
+      params.require(:lecturer).permit(:password, :password_confirmation)
     end
   end
 
   def get_user
     @user = User.find_by(email: params[:email])
-  end
-
-  def get_lec
     @lec = Lecturer.find_by(email: params[:email])
   end
 
   def valid_user
     unless (@user && @user.activated? && 
-           @user.authenticated?(:reset, params[:id]))
+            @user.authenticated?(:reset, params[:id])) ||
+      (@lec && @lec.activated? && @lec.authenticated?(:reset, params[:id]))
       redirect_to root_url
     end
   end
 
-  def valid_lec
-    unless (@lec && @lec.activated? && 
-           @lec.authenticated?(:reset, params[:id]))
-      redirect_to root_url
-    end
-  end
-   
   def password_blank?
     if params.has_key? :user
-    params[:user][:password].blank?
+      params[:user][:password].blank?
     else
       params[:lecturer][:password].blank?
     end
   end
 
   def check_expiration
-    if @user.password_reset_expired? || @lec.password_reset_expired?
+    if @user.password_reset_expired? 
+      flash[:danger] = "Password reset expired"
+      redirect_to new_password_reset_url
+    elsif @lec.password_reset_expired? 
       flash[:danger] = "Password reset expired"
       redirect_to new_password_reset_url
     end
