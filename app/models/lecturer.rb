@@ -65,6 +65,10 @@ class Lecturer < ApplicationRecord
   end
 
   private
+  def downcase_email
+    self.email = email.downcase
+  end
+
   def create_activation_digest
     self.activation_token = Lecturer.new_token
     self.activation_digest = Lecturer.digest(activation_token)
