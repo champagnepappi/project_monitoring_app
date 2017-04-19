@@ -16,7 +16,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
           reg_no: "COM/0311/13",
           gender: "Male",
           department: "IT",
-          course_taken: "IT",
           password: "eqedq",
           password_confirmation: ""
 
@@ -37,7 +36,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
           reg_no: "COM/0011/13",
           gender: "Male",
           department: "IT",
-          course_taken: "Computer Science",
           password: "qwertyu",
           password_confirmation: "qwertyu"
 
