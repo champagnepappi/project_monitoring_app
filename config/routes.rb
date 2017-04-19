@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'approve' => 'projects#approve'
   get 'reject'  => 'projects#reject'
   get 'supervisor' => 'lecturers#supervisor'
+  get 'assign' => 'users#assign'
   resources :users
   resources :lecturers
   resources :projects
