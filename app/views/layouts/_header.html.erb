@@ -11,16 +11,16 @@
                     <% if current_user && current_user.admin? || current_lec && current_lec.admin? %>
                         <li> <%= link_to fa_icon('folder-open', text: "Projects"), projects_path %></li>
                     <% end %>
-                    <li> <%= link_to fa_icon('sign-out', text: "Logout"), logout_path, method: :delete %></li>
                     <li> <%= link_to fa_icon('users', text: "Users"), users_path %></li>
                     <% if current_lec && !current_user?(current_user)  %>
                         <li> <%= link_to fa_icon('user', text: "Profile"), current_lec %></li>
                         <li> <%= link_to fa_icon('pencil', text: "Settings"),edit_lecturer_path(current_lec) %></li>
                         <% end %>
-                    <% if  current_user && !current_user?(current_lec) %>
+                    <% if  current_user && !current_user?(current_lec)  %>
                         <li> <%= link_to fa_icon('user', text: "Profile"), current_user %></li>
                         <li> <%= link_to fa_icon('pencil', text: "Settings"),edit_user_path(current_user) %></li>
                     <% end %>
+                    <li> <%= link_to fa_icon('sign-out', text: "Logout"), logout_path, method: :delete %></li>
                 <% else %>
                     <li> <%= link_to fa_icon('sign-in', text: "Student Login"), login_path %></li>
                     <li> <%= link_to fa_icon('sign-in', text: "Lecturer Login"), loginlec_path %></li>
