@@ -19,7 +19,7 @@ class User < ApplicationRecord
            format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
 
   DEPARTMENT = ["IT", "Computer Science"]
-  COURSE_TAKEN = ["IT", "Computer Science", "Network Security", "Information System"]
+  # COURSE_TAKEN = ["IT", "Computer Science", "Network Security", "Information System"]
   GENDER = ["Male","Female"]
 
   has_secure_password
