@@ -28,6 +28,22 @@ class ActiveSupport::TestCase
     end
   end
 
+  def log_in_lec(lec, options= {})
+    password = options[:password] || 'password'
+    remember_me = options[:remember_me] || '1'
+    if integration_test?
+      post loginlec_path, params: {
+        session: {
+          email: lec.email,
+          password: password,
+          remember_me: remember_me
+        }
+      }
+    else
+      session[:lec_id] = lec.id
+    end
+  end
+
   private
   def integration_test?
     defined?(post_via_redirect)
