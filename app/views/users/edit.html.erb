@@ -29,10 +29,6 @@
             <%= f.select :department, User::DEPARTMENT, prompt: "Select Department" %>
         </div>
         <div class="medium-12 columns">
-            <%= f.label :course_taken%>
-            <%= f.select :course_taken, User::COURSE_TAKEN, prompt: "Select course taken" %>
-        </div>
-        <div class="medium-12 columns">
             <%= f.label :password %>
             <%= f.password_field :password %>
         </div>
