@@ -17,6 +17,11 @@
                         <th>Project</th>
                     </tr>
                 </thead>
+                <% @lec.users do |stud|%>
+                <tbody>
+                    <td> <%= stud.first_name %> </td>
+                </tbody>
+                <% end %>
             </table>
         </div>
     </div>
