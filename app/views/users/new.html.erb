@@ -6,15 +6,15 @@
         <%= render 'shared/error_messages', object: f.object %>
         <div class="medium-6 columns">
             <%= f.label :first_name %>
-            <%= f.text_field :first_name %>
+            <%= f.text_field :first_name , placeholder: "enter first name"%>
         </div>
         <div class="medium-6 columns">
             <%= f.label :last_name %>
-            <%= f.text_field :last_name %>
+            <%= f.text_field :last_name, placeholder: "enter last name" %>
         </div>
         <div class="medium-12 columns">
             <%= f.label :email %>
-            <%= f.email_field :email %>
+            <%= f.email_field :email , placeholder: "enter email address"%>
         </div>
         <div class="medium-12 columns">
             <%= f.label :reg_no %>
