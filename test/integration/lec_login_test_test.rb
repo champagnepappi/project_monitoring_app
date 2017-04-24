@@ -31,6 +31,7 @@ class LecLoginTestTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_template 'lecturers/show'
     assert_select "a[href=?]", login_path, count: 0
+    assert_select "a[href=?]", loginlec_path, count: 0
     assert_select "a[href=?]", lecturer_path(@lec)
     assert_select "a[href=?]", logout_path
     delete logout_path
@@ -38,6 +39,7 @@ class LecLoginTestTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url
     follow_redirect!
     assert_select "a[href=?]", login_path
+    assert_select "a[href=?]", loginlec_path
     assert_select "a[href=?]", lecturer_path(@lec),count: 0
     assert_select "a[href=?]", logout_path, count: 0
     
