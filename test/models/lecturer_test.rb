@@ -2,7 +2,12 @@ require 'test_helper'
 
 class LecturerTest < ActiveSupport::TestCase
   def setup
-    @lec = Lec.new(first_name: "Daniel", last_name: "Jack",
+    @lec = Lecturer.new(first_name: "Daniel", last_name: "Jack",
                   email: "daniel@gmail.com")
+  end
+
+  test "first name should be present" do
+    @lec.first_name = ""
+    assert_not @lec.valid?
   end
 end
