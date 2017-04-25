@@ -10,4 +10,9 @@ class LecturerTest < ActiveSupport::TestCase
     @lec.first_name = ""
     assert_not @lec.valid?
   end
+
+  test "email should be present" do
+    @lec.email = ""
+    assert_not @lec.valid?
+  end
 end
