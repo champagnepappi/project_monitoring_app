@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
 
   get 'approve' => 'projects#approve'
+  get 'undoapproval' => 'projects#undo_approval'
   get 'reject'  => 'projects#reject'
   get 'supervisor' => 'lecturers#supervisor'
   get 'assign' => 'users#assign'
