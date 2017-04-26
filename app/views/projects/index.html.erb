@@ -35,6 +35,7 @@
                     <tr>
                         <td> <%= approved.id %></td>
                         <td> <%= link_to approved.title, approved %></td>
+                        <td> <%= link_to "Undo approval", undoapproval_path(id: approved.id, status: "submitted"), class: "button small" %></td>
                     </tr>
                     <% end %>
         </table>
