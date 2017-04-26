@@ -44,6 +44,12 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def undo_approval
+    project = Project.find_by(id: params[:id])
+    project.update_attribute(:status, params[:status])
+    redirect_to projects_path
+  end
+
   private
   def project_params
     params.require(:project).permit(:title, :description)
