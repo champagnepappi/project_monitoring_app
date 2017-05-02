@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   enum role: {user: 0, lecturer: 1}
   enum status: {not_assigned: 0, assigned: 1} 
+  belongs_to :lecturer
   has_many :projects
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save :downcase_email
