@@ -14,7 +14,7 @@
                 <tr>
                     <td> <%= sup.id %></td>
                     <td> <%= link_to sup.first_name, sup %></td>
-                    <td> <%= link_to "assign student", assign_path(id: @student.id, supervisor: sup.id, status: "assigned"), class: "button" %></td>
+                    <td> <%= link_to "assign student", assign_path(user_id: @student.id, supervisor: sup.id, status: "assigned"), class: "button" %></td>
                 </tr>
             </tbody>
         <% end %>

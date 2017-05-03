@@ -32,6 +32,4 @@ class ProjectSubmissionTest < ActionDispatch::IntegrationTest
     assert_equal flash[:success], "Project successfully submitted"
   end
 
-  test "wrong user submitting project" do
-  end
 end
