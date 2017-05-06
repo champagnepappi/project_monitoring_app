@@ -43,6 +43,7 @@ class LecturersController < ApplicationController
   def supervisor
     @supervisors = Lecturer.all
     @student = User.find_by(id: params[:user_id])
+    @bid = Bid.new
   end    
 
   private
