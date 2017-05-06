@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170503154555) do
+ActiveRecord::Schema.define(version: 20170506101221) do
 
   create_table "bids", force: :cascade do |t|
     t.integer  "user_id"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20170503154555) do
     t.string   "remember_digest"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
+    t.integer  "status",            default: 0
   end
 
   create_table "projects", force: :cascade do |t|
