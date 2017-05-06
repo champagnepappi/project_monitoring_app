@@ -3,6 +3,7 @@ class User < ApplicationRecord
   enum status: {not_assigned: 0, assigned: 1} 
   has_many :projects
   has_one :bid
+  has_one :lecturer
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save :downcase_email
   before_save {self.first_name = first_name.capitalize}
