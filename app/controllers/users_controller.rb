@@ -47,8 +47,9 @@ class UsersController < ApplicationController
 
   def assign
     student = User.find_by(id: params[:user_id])
-    Lecturer.find_by(id: params[:supervisor])
+    lec = Lecturer.find_by(id: params[:supervisor])
     student.update_attribute(:status, params[:status])
+    lec.update_attribute(:status, params[:lec_status])
     redirect_to users_path
   end
 
