@@ -14,7 +14,14 @@
                 <tr>
                     <td> <%= sup.id %></td>
                     <td> <%= link_to sup.first_name, sup %></td>
-                    <td> <%= link_to "assign student", assign_path(user_id: @student.id, supervisor: sup.id, status: "assigned"), class: "button" %></td>
+                    <%# <td> <%= link_to "assign student", assign_path(user_id: @student.id, supervisor: sup.id, status: "assigned"), class: "button" %1></td> %>
+                    <td>
+                    <%= form_for @bid do |f| %>
+                        <%= f.hidden_field :user_id %>
+                        <%= f.hidden_field :lecturer_id %>
+                        <%= f.submit "Assign supervisor", class: "button" %>
+                    <% end %>
+                    </td>
                 </tr>
             </tbody>
         <% end %>
