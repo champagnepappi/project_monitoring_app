@@ -17,6 +17,11 @@
                         <th>Project</th>
                     </tr>
                 </thead>
+                <%= @students.each do |stud| %>
+                    <tr>
+                        <td> <%= stud.first_name %></td>
+                    </tr>
+                    <% end %>
 
             </table>
         </div>
