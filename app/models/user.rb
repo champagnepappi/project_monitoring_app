@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_one :active_relationship, class_name: "Relationship",
                                 foreign_key: "supervised_id",
                                 dependent: :destroy
+  has_one :supervised, through: :active_relationship, source: :supervisor
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save :downcase_email
   before_save {self.first_name = first_name.capitalize}
