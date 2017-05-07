@@ -1,0 +1,8 @@
+<% @supervisor = Lecturer.find_by(id: params[:id])%>
+<div class="stats">
+<a href=" <%= following_lecturer_path(@supervisor) %>"></a>
+<strong id="supervising" class="stat">
+   <%= @supervisor.supervising.count %>
+</strong>
+supervising
+</div>
