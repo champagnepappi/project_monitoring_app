@@ -29,6 +29,10 @@ class Lecturer < ApplicationRecord
     BCrypt::Password.create(string, cost: cost)
   end
 
+  def supervise(student)
+    active_relationships.create(supervised_id: student.id)
+  end
+
   def Lecturer.new_token
     SecureRandom.urlsafe_base64
   end
