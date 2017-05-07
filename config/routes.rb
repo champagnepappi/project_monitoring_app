@@ -20,7 +20,11 @@ Rails.application.routes.draw do
   get 'supervisor' => 'lecturers#supervisor'
   get 'assign' => 'users#assign'
   resources :users
-  resources :lecturers
+  resources :lecturers do
+    member do
+      get :supervising
+    end
+  end
   resources :projects
   resources :bids
   resources :account_activations, only: [:edit]
