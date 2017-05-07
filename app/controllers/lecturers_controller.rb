@@ -47,6 +47,14 @@ class LecturersController < ApplicationController
     @bid = Bid.new
   end    
 
+  def supervising
+    @title = "Students supervising"
+    @user = User.find_by(id: params[:user_id])
+    @supervisor = Lecturer.find_by(params[:id])
+    @users = @supervisor.supervising
+    render 'show_follow'
+  end
+
   private
   def lec_params
     params.require(:lecturer).permit(:first_name, :last_name, :email, :password, :password_confirmation)
