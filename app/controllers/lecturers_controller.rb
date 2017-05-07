@@ -52,7 +52,7 @@ class LecturersController < ApplicationController
     @user = User.find_by(id: params[:user_id])
     @supervisor = Lecturer.find_by(params[:id])
     @users = @supervisor.supervising
-    render 'show_follow'
+    render 'show_supervised'
   end
 
   private
