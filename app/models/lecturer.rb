@@ -33,6 +33,10 @@ class Lecturer < ApplicationRecord
     active_relationships.create(supervised_id: student.id)
   end
 
+  def supervising?(student)
+    supervising.include?(student)
+  end
+
   def Lecturer.new_token
     SecureRandom.urlsafe_base64
   end
