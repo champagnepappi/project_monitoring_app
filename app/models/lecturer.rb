@@ -4,6 +4,7 @@ class Lecturer < ApplicationRecord
   has_many :active_relationships, class_name: "Relationship",
                                   foreign_key: "supervisor_id",
                                   dependent:  :destroy
+  has_many :supervising, through: :active_relationships, source: :supervised
   enum status: {not_assigned: 0, assigned: 1}
   enum role: {lecturer: 0, admin: 1}
   attr_accessor :activation_token, :remember_token, :reset_token

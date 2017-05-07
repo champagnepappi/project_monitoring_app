@@ -4,6 +4,9 @@ class User < ApplicationRecord
   has_many :projects
   has_one :bid
   has_one :lecturer
+  has_one :active_relationship, class_name: "Relationship",
+                                foreign_key: "supervised_id",
+                                dependent: :destroy
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save :downcase_email
   before_save {self.first_name = first_name.capitalize}
