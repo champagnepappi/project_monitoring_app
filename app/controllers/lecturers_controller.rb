@@ -50,7 +50,7 @@ class LecturersController < ApplicationController
   def supervising
     @title = "Students supervising"
     @user = User.find_by(id: params[:user_id])
-    @supervisor = Lecturer.find_by(params[:id])
+    @supervisor = Lecturer.find_by(id: params[:id])
     @users = @supervisor.supervising
     render 'show_supervised'
   end
