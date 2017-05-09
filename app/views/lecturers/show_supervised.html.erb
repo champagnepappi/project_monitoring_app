@@ -1,0 +1,29 @@
+<% provide(:title, @supervisor.first_name)%>
+<div class="row">
+    <div class="medium-12 columns">
+        <div id = "grav">
+            <div class="medium-4 columns">
+                <p> <%= gravatar_for @supervisor %></p>
+                <p>Name: <%= @supervisor.first_name %></p>
+                <p>Email: <%= @supervisor.email %></p>
+            </div>
+        </div>
+        <div class="medium-8 columns">
+            <table>
+                <h4><strong>Students assigned</strong></h4>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Project</th>
+                    </tr>
+                </thead>
+                <%= render 'shared/stats' %>
+                <% if @users.any?%>
+                    <% @users.each do |user|%>
+                        <%= user.first_name %>
+                    <% end %>
+
+            </table>
+        </div>
+    </div>
+</div>
