@@ -17,7 +17,13 @@
                         <th>Project</th>
                     </tr>
                 </thead>
-                <%= render 'shared/stats' %>
+                <%# <%= render 'shared/stats' %1> %>
+                <% @lec.supervising.each do |sup|%>
+                    <td> <%= sup.first_name %></td>
+                    <% sup.projects.each do |proj| %>
+                        <td> <%= proj.title %></td>
+                    <% end %>
+                <% end %>
 
             </table>
         </div>
