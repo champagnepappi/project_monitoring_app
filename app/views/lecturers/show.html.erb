@@ -19,7 +19,7 @@
                 </thead>
                 <%# <%= render 'shared/stats' %1> %>
                 <% @lec.supervising.each do |sup|%>
-                    <td> <%= sup.first_name %></td>
+                    <td> <%=link_to sup.first_name , sup%></td>
                     <% sup.projects.each do |proj| %>
                         <td> <%= proj.title %></td>
                     <% end %>
