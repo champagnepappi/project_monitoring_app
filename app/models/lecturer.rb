@@ -23,6 +23,10 @@ class Lecturer < ApplicationRecord
   has_secure_password
   validates :password, length: { minimum: 6 }, allow_blank: true
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   def Lecturer.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
