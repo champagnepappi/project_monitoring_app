@@ -45,6 +45,7 @@ class LecturersController < ApplicationController
     @supervisors = Lecturer.all
     @student = User.find_by(id: params[:user_id])
     @bid = Bid.new
+    @user = User.find_by(id: params[:user_id])
   end    
 
   def supervising
