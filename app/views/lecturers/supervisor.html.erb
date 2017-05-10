@@ -14,14 +14,13 @@
                 <tr>
                     <td> <%= sup.id %></td>
                     <td> <%= link_to sup.first_name, sup %></td>
-                    <td> <%= link_to "assign student", assign_path(user_id: @student.id, supervisor: sup.id, status: "assigned", lec_status: "assigned"), class: "button" %></td>
-                    <%# <td> %>
-                    <%# <%= form_for @bid do |f| %1> %>
-                    <%#     <%= f.hidden_field :user_id %1> %>
-                    <%#     <%= f.hidden_field :lecturer_id %1> %>
-                    <%#     <%= f.submit "Assign supervisor", class: "button" %1> %>
-                    <%# <% end %1> %>
-                    <%# </td> %>
+                    <td>
+                    <%= form_for(sup.active_relationships.build(supervised_id: @user.id)) do |f| %>
+                        <%= hidden_field_tag :supervised_id, @user.id %>
+                        <%= hidden_field_tag :supervisor_id, sup.id %>
+                        <%= f.submit "Assign supervisor", class: "button" %>
+                    <% end %>
+                    </td>
                 </tr>
             </tbody>
         <% end %>

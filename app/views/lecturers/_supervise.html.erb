@@ -1,4 +1,5 @@
 <% provide(:title, "Assign form")%>
+<% @supervisor = Lecturer.find_by(id: params[:id])%>
 <% form_for(@supervisor.active_relationships.build(supervised_id: @user.id), remote: true) do |f|%>
     <div> <%= hidden_field_tag :supervised_id, @user.id %></div>
     <%= f.submit "Assign student", class: "button" %>
