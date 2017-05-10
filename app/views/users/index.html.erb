@@ -29,7 +29,9 @@
                     <% elsif user.assigned? %>
                         <td>assigned</td>
                     <% end %>
+                    <% if user.supervised %>
                     <td> <%= user.supervised.full_name %></td>
+                    <% end %>
                 </tr>
             </tbody>
         <% end %>
