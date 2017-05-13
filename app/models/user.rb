@@ -2,6 +2,7 @@ class User < ApplicationRecord
   enum role: {user: 0, lecturer: 1}
   enum status: {not_assigned: 0, assigned: 1} 
   has_many :projects
+  has_many :messages
   has_one :bid
   has_one :lecturer
   has_one :active_relationship, class_name: "Relationship",
