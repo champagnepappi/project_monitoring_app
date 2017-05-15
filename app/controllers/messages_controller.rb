@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
+  before_action :correct_user, only: :destroy
 
   def create
     @message = current_user.messages.build(message_params)
