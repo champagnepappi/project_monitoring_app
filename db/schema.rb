@@ -61,6 +61,9 @@ ActiveRecord::Schema.define(version: 20170513170941) do
     t.integer  "supervised_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.index ["supervised_id"], name: "index_relationships_on_supervised_id"
+    t.index ["supervisor_id", "supervised_id"], name: "index_relationships_on_supervisor_id_and_supervised_id", unique: true
+    t.index ["supervisor_id"], name: "index_relationships_on_supervisor_id"
   end
 
   create_table "users", force: :cascade do |t|
