@@ -11,5 +11,10 @@ class MessagesController < ApplicationController
       redirect_to current_user
     end
   end
+
+  private
+  def message_params
+    params.require(:message).permit(:content)
+  end
 end
 
