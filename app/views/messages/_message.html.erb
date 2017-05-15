@@ -1,6 +1,9 @@
 <li id="message- <%= message.id %>">
     <%= link_to gravatar_for(message.user, size: 50), message.user %>
-    <span class="content"> <%= message.content %></span><br>
+    <span class="content"> 
+        <%= message.content %>
+        <%= image_tag message.picture.url if message.picture? %>
+   </span><br>
     <span class="timestamp">
         Posted <%= time_ago_in_words(message.created_at) %> ago.
         <% if current_user?(message.user)%>

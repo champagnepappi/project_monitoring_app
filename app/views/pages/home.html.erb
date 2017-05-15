@@ -16,6 +16,7 @@
                 <li style="list-style: none">
                     <%= link_to gravatar_for(fd.user, size: 50), fd.user %>
                     <%= fd.content %> 
+                    <%= image_tag fd.picture.url if fd.picture? %>
                     <% if fd.created_at%>
                         <span class="timestamp">
                             Posted <%= time_ago_in_words(fd.created_at)%> ago.
