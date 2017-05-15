@@ -1,7 +1,8 @@
 <li id="message- <%= message.id %>">
-    <%= link_to gravatar_for(message.user, size: 50), message.user %>
+    <%# <%= link_to gravatar_for(message.user, size: 50), message.user %1> %>
+    <span class="user"> <%= link_to message.user.first_name, message.user %></span><br>
     <span class="content"> 
-        <%= message.content %>
+        <%= message.content %><br>
         <%= image_tag message.picture.url if message.picture? %>
    </span><br>
     <span class="timestamp">
