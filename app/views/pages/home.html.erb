@@ -1,5 +1,5 @@
 <% provide(:title, 'Home') %>
-<% if logged_in? && current_user%>
+<% if logged_in? %>
     <div class="row">
         <aside class="medium-4 columns">
             <section class="user_info">
@@ -9,6 +9,22 @@
                 <%= render 'shared/message_form' %>
             </section>
         </aside>
+        <div class="medium-8 columns">
+            <h1>Messages</h1>
+            <% if current_user.messages.any?%>
+            <% @feed.each do |fd|%>
+                <li style="list-style: none">
+                    <%= link_to gravatar_for(fd.user, size: 50), fd.user %>
+                    <%= fd.content %> 
+                    <% if fd.created_at%>
+                        <span class="timestamp">
+                            Posted <%= time_ago_in_words(fd.created_at)%> ago.
+                        </span>
+                    <% end %>
+                </li>
+            <% end %>
+            <% end %>
+        </div>
     </div>
 <% else %>
     <div id="sect">
