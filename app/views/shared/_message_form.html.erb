@@ -1,0 +1,6 @@
+<%= form_for(@message) do |f| %>
+    <div class="field">
+        <%= f.text_field :content, placeholder: "Compose new message..." %>
+    </div>
+    <%= f.submit "Submit", class: "button" %>
+<% end %>
