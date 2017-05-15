@@ -22,5 +22,10 @@ class MessagesController < ApplicationController
   def message_params
     params.require(:message).permit(:content)
   end
+
+  def correct_user
+    @message = current_user.messages.find_by(id: params[:id])
+    redirect_to root_url if @message.nil?
+  end
 end
 
