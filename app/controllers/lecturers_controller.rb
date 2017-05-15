@@ -25,6 +25,8 @@ class LecturersController < ApplicationController
   def show
     @lec = Lecturer.find_by(id: params[:id])
     @students = @lec.users.assigned
+    @supervising = @lec.supervising
+    @messages = @supervising.messages
   end
 
   def edit
