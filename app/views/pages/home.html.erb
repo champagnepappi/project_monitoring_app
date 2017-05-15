@@ -1,18 +1,31 @@
 <% provide(:title, 'Home') %>
-<div id="sect">
-    <div class="pagedata">
-        <h1>Project Tracking and Monitoring Tool</h1>
-        <% unless current_user || current_lec %>
-            <%# <div class="button1"> %>
-                <%= link_to "Signup as Student", new_user_path, class: "button" %>
-                <%= link_to "Signup as Lecturer", new_lecturer_path, class: "button" %>
-            <%# </div> %>
-        <% end %>
+<% if logged_in? && current_user%>
+    <div class="row">
+        <aside class="medium-4 columns">
+            <section class="user_info">
+                <%= render 'shared/user_info' %>
+            </section>
+            <section class="message_form">
+                <%= render 'shared/message_form' %>
+            </section>
+        </aside>
     </div>
-</div>
-<div id="footer">
-    <p class="prg">&copy; <%= Date.today.year %>  Project Tracking and Monitoring Tool</p>
-    <p class="prg">Developed by Kevin Santos</p>
-    <p class="prg"> <%= link_to fa_icon('github'), "https://github.com/champagnepappi" %></p>
+<% else %>
+    <div id="sect">
+        <div class="pagedata">
+            <h1>Project Tracking and Monitoring Tool</h1>
+            <% unless current_user || current_lec %>
+                <%# <div class="button1"> %>
+                    <%= link_to "Signup as Student", new_user_path, class: "button" %>
+                    <%= link_to "Signup as Lecturer", new_lecturer_path, class: "button" %>
+                    <%# </div> %>
+            <% end %>
+        </div>
+    </div>
+    <div id="footer">
+        <p class="prg">&copy; <%= Date.today.year %>  Project Tracking and Monitoring Tool</p>
+        <p class="prg">Developed by Kevin Santos</p>
+        <p class="prg"> <%= link_to fa_icon('github'), "https://github.com/champagnepappi" %></p>
 
-</div>
+    </div>
+<% end %>
