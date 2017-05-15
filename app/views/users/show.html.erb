@@ -30,6 +30,12 @@
                     </tbody>
                 <% end %>
             </table>
+            <% if @user.messages.any?%>
+                <h3>Messages ( <%= @user.messages.count %> )</h3>
+                <ol class="messages">
+                    <%= render @messages %>
+                </ol>
+                <% end %>
         </div>
     </div>
 </div>
