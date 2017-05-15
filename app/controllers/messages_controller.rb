@@ -12,6 +12,12 @@ class MessagesController < ApplicationController
     end
   end
 
+  def destroy
+    @message.destroy
+    flash[:success] = "Message deleted"
+    redirect_to request.referrer || root_url
+  end
+
   private
   def message_params
     params.require(:message).permit(:content)
