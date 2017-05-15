@@ -7,7 +7,8 @@ class MessagesController < ApplicationController
       flash[:success] = "Your message was successfully sent!"
       redirect_to current_user
     else
-      render 'pages/home'
+      flash[:danger] = "There was a problem submitting message"
+      redirect_to root_path
     end
   end
 
