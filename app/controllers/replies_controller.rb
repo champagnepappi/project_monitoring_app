@@ -21,7 +21,7 @@ class RepliesController < ApplicationController
 
   private
   def reply_params
-    params.require(:reply).permit(:content)
+    params.require(:reply).permit(:content, :message_id, :lecturer_id)
   end
 
   def correct_user
