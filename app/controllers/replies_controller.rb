@@ -10,6 +10,12 @@ class RepliesController < ApplicationController
     end
   end
 
+  def destroy
+    @reply.destroy
+    flash[:success] = "Message deleted"
+    redirect_to request.referrer || root_url
+  end
+
   private
   def reply_params
     params.require(:reply).permit(:content)
