@@ -27,17 +27,21 @@
         <h1>Replys</h1>
         <% if @replies.any?%>
             <%@replies.each do |rep|%>
-                <li style="list-style: none">
-                    <%# <%= link_to gravatar_for(message.user, size: 50), message.user %1> %>
-                    <span class="user"> <%= link_to rep.lecturer.first_name, rep.lecturer %></span><br>
-                    <span class="content"> 
-                        <%= rep.content %><br>
+                    <li style="list-style: none">
+                        <%# <%= link_to gravatar_for(fd.user, size: 50), fd.user %1> %>
+                        <% if logged_in? && current_user?(current_lec)%>
+                            <%= link_to current_lec.first_name, current_lec %><br>
+                        <% else%>
+                        <%= link_to rep.lecturer.full_name, rep.lecturer %><br>
+                        <% end %>
+                        <%= rep.content %> <br>
                         <%= image_tag rep.picture.url if rep.picture? %>
-                    </span><br>
-                    <span class="timestamp">
-                        Posted <%= time_ago_in_words(rep.created_at) %> ago.
-                    </span><br>
-                </li>
+                        <% if rep.created_at%>
+                            <span class="timestamp">
+                                Posted <%= time_ago_in_words(rep.created_at)%> ago.
+                            </span>
+                        <% end %>
+                    </li>
             <% end %>
         <% end %>
 
