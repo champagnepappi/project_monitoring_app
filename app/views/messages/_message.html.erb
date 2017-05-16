@@ -10,5 +10,8 @@
         <% if current_user?(message.user)%>
             <%= link_to "delete", message, method: :delete, data: {confirm: "You sure you want to delete this message??"} %>
         <% end %>
+    </span><br>
+    <span class="comment">
+     <%= link_to fa_icon('comments'), message_path(id: message.id) %>
     </span>
 </li>
