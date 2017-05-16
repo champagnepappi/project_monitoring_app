@@ -11,4 +11,9 @@ class ReplysController < ApplicationController
       redirect_to current_lec
     end
   end
+
+  private
+  def reply_params
+    params.require(:reply).permit(:content)
+  end
 end
