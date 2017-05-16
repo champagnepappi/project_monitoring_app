@@ -1,5 +1,6 @@
 class ReplysController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
+  before_action :correct_lec, only: :destroy
 
   def create
     @reply = current_lec.replys.build(reply_params)
