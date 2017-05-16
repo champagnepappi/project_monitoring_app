@@ -27,9 +27,19 @@
         <h1>Replys</h1>
         <% if @replies.any?%>
             <%@replies.each do |rep|%>
-                <%= rep.content %>
-                <% end %>
+                <li style="list-style: none">
+                    <%# <%= link_to gravatar_for(message.user, size: 50), message.user %1> %>
+                    <span class="user"> <%= link_to rep.lecturer.first_name, rep.lecturer %></span><br>
+                    <span class="content"> 
+                        <%= rep.content %><br>
+                        <%= image_tag rep.picture.url if rep.picture? %>
+                    </span><br>
+                    <span class="timestamp">
+                        Posted <%= time_ago_in_words(rep.created_at) %> ago.
+                    </span><br>
+                </li>
             <% end %>
+        <% end %>
 
 
     </div>
