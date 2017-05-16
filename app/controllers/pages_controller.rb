@@ -5,4 +5,7 @@ class PagesController < ApplicationController
       @feed = current_user.messages
     end
   end
+
+  def help
+  end
 end
