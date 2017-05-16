@@ -33,8 +33,7 @@
                 <% @supervising.each do |m|%>
                     <% if m.messages.any?%>
                         <% m.messages.each do |msg| %>
-                            <%# <li><%= msg.content %1><li> %>
-                                    <li id="msg- <%= msg.id %>">
+                                    <li style="list-style: none">
                                         <%# <%= link_to gravatar_for(message.user, size: 50), message.user %1> %>
                                         <span class="user"> <%= link_to msg.user.first_name, msg.user %></span><br>
                                         <span class="content"> 
