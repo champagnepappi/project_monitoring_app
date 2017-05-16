@@ -12,10 +12,12 @@
         <p>
         <% if current_user?(current_lec)%>
             <%= form_for(@message.replies.build) do |f| %>
+                <%= render 'shared/error_messages', object: f.object %>
                 <%= f.hidden_field :message_id %>
                 <%= f.hidden_field :lecturer_id, value: current_lec.id %>
                 <%= f.text_area :content, placeholder: "Reply to this message..." %>
                 <%= f.submit "Reply", class: "button" %>
+                <%= f.file_field :picture %>
 
             <% end %>
         <% end %>
@@ -23,6 +25,12 @@
     </div>
     <div class="medium-7 columns">
         <h1>Replys</h1>
+        <% if @replies.any?%>
+            <%@replies.each do |rep|%>
+                <%= rep.content %>
+                <% end %>
+            <% end %>
+
 
     </div>
 </div>
