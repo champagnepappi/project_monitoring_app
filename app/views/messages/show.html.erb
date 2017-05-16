@@ -1,2 +1,28 @@
 <% provide(:title, 'Replys')%>
-<%= @message.content %>
+<div class="row">
+    <div class="medium-5 columns">
+        <%= link_to @message.user.full_name, @message.user %><br>
+        <%= @message.content %> <br>
+        <%= image_tag @message.picture.url if @message.picture? %>
+        <% if @message.created_at%>
+            <span class="timestamp">
+                Posted <%= time_ago_in_words(@message.created_at)%> ago.
+            </span>
+        <% end %>
+        <p>
+        <% if current_user?(current_lec)%>
+            <%= form_for(@message.replys.build) do |f| %>
+                <%= f.hidden_field :message_id, value: @message.id %>
+                <%= f.hidden_field :lecturer_id, value: current_lec.id %>
+                <%= f.text_area :content, placeholder: "Reply to this message" %>
+                <%= f.submit "Reply", class: "button" %>
+
+            <% end %>
+        <% end %>
+        </p>
+    </div>
+    <div class="medium-7 columns">
+        <h1>Replys</h1>
+
+    </div>
+</div>

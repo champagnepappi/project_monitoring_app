@@ -1,6 +1,6 @@
 class Message < ApplicationRecord
   belongs_to :user
-  has_many :replys
+  has_many :replies
   default_scope -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
   validates :content, presence: true, length: { maximum: 140 }

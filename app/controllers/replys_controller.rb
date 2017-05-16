@@ -2,6 +2,8 @@ class ReplysController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :correct_lec, only: :destroy
 
+  def new
+  end
   def create
     @reply = Reply.new(reply_params)
     if @reply.save
@@ -25,7 +27,7 @@ class ReplysController < ApplicationController
 
   private
   def reply_params
-    params.require(:reply).permit(:content)
+    params.require(:reply).permit(:content, :message_id, :lecturer_id)
   end
 
   def correct_lec

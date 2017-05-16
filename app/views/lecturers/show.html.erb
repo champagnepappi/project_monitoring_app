@@ -19,16 +19,16 @@
                 </thead>
                 <%# <%= render 'shared/stats' %1> %>
                 <% @lec.supervising.each do |sup|%>
-                <tbody>
-                    <td> <%=link_to sup.first_name , sup%></td>
-                    <% sup.projects.each do |proj| %>
-                        <td> <%= proj.title %></td>
-                    <% end %>
-                </tbody>
+                    <tbody>
+                        <td> <%=link_to sup.first_name , sup%></td>
+                        <% sup.projects.each do |proj| %>
+                            <td> <%= proj.title %></td>
+                        <% end %>
+                    </tbody>
                 <% end %>
 
             </table>
-                <h4><strong>Messages</strong></h4>
+            <h4><strong>Messages</strong></h4>
             <% if @supervising.any?%>
                 <% @supervising.each do |m|%>
                     <% if m.messages.any?%>
@@ -43,6 +43,9 @@
                                         </span><br>
                                         <span class="timestamp">
                                             Posted <%= time_ago_in_words(msg.created_at) %> ago.
+                                        </span>
+                                        <span class="comment">
+                                            <%= link_to fa_icon('comments'), message_path(id: msg.id) %>
                                         </span>
                                     </li>
                                 <% end %>

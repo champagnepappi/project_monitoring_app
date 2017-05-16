@@ -12,22 +12,25 @@
         <div class="medium-8 columns">
             <h1>Messages</h1>
             <% if current_user.messages.any?%>
-            <% @feed.each do |fd|%>
-                <li style="list-style: none">
-                    <%# <%= link_to gravatar_for(fd.user, size: 50), fd.user %1> %>
-                    <%= link_to fd.user.full_name, fd.user %><br>
-                    <%= fd.content %> <br>
-                    <%= image_tag fd.picture.url if fd.picture? %>
-                    <% if fd.created_at%>
-                        <span class="timestamp">
-                            Posted <%= time_ago_in_words(fd.created_at)%> ago.
-                            <% if current_user?(fd.user)%>
-                                <%= link_to "delete", fd, method: :delete, data: {confirm: "You sure you want to delete this message??"} %>
+                <% @feed.each do |fd|%>
+                    <li style="list-style: none">
+                        <%# <%= link_to gravatar_for(fd.user, size: 50), fd.user %1> %>
+                        <%= link_to fd.user.full_name, fd.user %><br>
+                        <%= fd.content %> <br>
+                        <%= image_tag fd.picture.url if fd.picture? %>
+                        <% if fd.created_at%>
+                            <span class="timestamp">
+                                Posted <%= time_ago_in_words(fd.created_at)%> ago.
+                                <% if current_user?(fd.user)%>
+                                    <%= link_to "delete", fd, method: :delete, data: {confirm: "You sure you want to delete this message??"} %>
                                 <% end %>
-                        </span>
-                    <% end %>
-                </li>
-            <% end %>
+                            </span>
+                            <span class="comment">
+                                <%= link_to fa_icon('comments'), message_path(id: fd.id) %>
+                            </span>
+                        <% end %>
+                    </li>
+                <% end %>
             <% end %>
         </div>
     </div>
