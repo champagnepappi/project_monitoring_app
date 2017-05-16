@@ -3,7 +3,7 @@ class ReplysController < ApplicationController
   before_action :correct_lec, only: :destroy
 
   def create
-    @reply = current_lec.replys.build(reply_params)
+    @reply = Reply.new(reply_params)
     if @reply.save
       flash[:success] = "Your reply was successfully sent"
       redirect_to current_lec
