@@ -1,4 +1,7 @@
 class RepliesController < ApplicationController
+  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :correct_user, only: :destroy
+
   def create
     @reply = Reply.new(reply_params)
     if @reply.save
