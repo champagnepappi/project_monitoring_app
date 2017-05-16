@@ -14,8 +14,9 @@
             <% if current_user.messages.any?%>
             <% @feed.each do |fd|%>
                 <li style="list-style: none">
-                    <%= link_to gravatar_for(fd.user, size: 50), fd.user %>
-                    <%= fd.content %> 
+                    <%# <%= link_to gravatar_for(fd.user, size: 50), fd.user %1> %>
+                    <%= link_to fd.user.full_name, fd.user %><br>
+                    <%= fd.content %> <br>
                     <%= image_tag fd.picture.url if fd.picture? %>
                     <% if fd.created_at%>
                         <span class="timestamp">
