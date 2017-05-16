@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170515171426) do
+ActiveRecord::Schema.define(version: 20170516113531) do
 
   create_table "bids", force: :cascade do |t|
     t.integer  "user_id"
@@ -65,6 +65,16 @@ ActiveRecord::Schema.define(version: 20170515171426) do
     t.index ["supervised_id"], name: "index_relationships_on_supervised_id"
     t.index ["supervisor_id", "supervised_id"], name: "index_relationships_on_supervisor_id_and_supervised_id", unique: true
     t.index ["supervisor_id"], name: "index_relationships_on_supervisor_id"
+  end
+
+  create_table "replies", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "message_id"
+    t.integer  "lecturer_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["lecturer_id"], name: "index_replies_on_lecturer_id"
+    t.index ["message_id"], name: "index_replies_on_message_id"
   end
 
   create_table "users", force: :cascade do |t|
