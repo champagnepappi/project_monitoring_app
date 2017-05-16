@@ -1,5 +1,6 @@
 class Lecturer < ApplicationRecord
   has_many :users
+  has_many :replys
   has_many :bids
   has_many :active_relationships, class_name: "Relationship",
                                   foreign_key: "supervisor_id",
