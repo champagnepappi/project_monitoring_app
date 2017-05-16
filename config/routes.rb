@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     end
   end
   resources :projects
-  resources :messages, only: [:create, :destroy]
+  resources :messages, only: [:create,:show, :destroy]
   resources :replys, only: [:create, :destroy]
   resources :bids
   resources :account_activations, only: [:edit]
