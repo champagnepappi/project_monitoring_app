@@ -13,6 +13,10 @@ class ReplysController < ApplicationController
     end
   end
 
+  def show
+    @message = Message.find_by(id: params[:id])
+  end
+
   def destroy
     @reply.destroy
     flash[:success] = "Reply deleted"
