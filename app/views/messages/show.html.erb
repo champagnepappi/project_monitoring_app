@@ -17,7 +17,7 @@
                 <%= f.hidden_field :lecturer_id, value: current_lec.id %>
                 <%= f.text_area :content, placeholder: "Reply to this message..." %>
                 <%= f.submit "Reply", class: "button" %>
-                <%= f.file_field :picture %>
+                <%= f.file_field :picture, accept: 'image/jpeg, image/gif, image/png' %>
 
             <% end %>
             <script type="text/javascript">
