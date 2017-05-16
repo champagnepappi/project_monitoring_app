@@ -22,4 +22,9 @@ class ReplysController < ApplicationController
   def reply_params
     params.require(:reply).permit(:content)
   end
+
+  def correct_lec
+    @reply = current_lec.replys.find_by(id: params[:id])
+    redirect_to root_url if @reply.nil?
+  end
 end
