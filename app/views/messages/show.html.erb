@@ -11,7 +11,7 @@
         <% end %>
         <p>
         <% if current_user?(current_lec)%>
-            <%= form_for(@message.replys.build) do |f| %>
+            <%= form_for(@message.replies.build) do |f| %>
                 <%= f.hidden_field :message_id, value: @message.id %>
                 <%= f.hidden_field :lecturer_id, value: current_lec.id %>
                 <%= f.text_area :content, placeholder: "Reply to this message" %>
