@@ -6,10 +6,10 @@ class RepliesController < ApplicationController
     @reply = Reply.new(reply_params)
     if @reply.save
       flash[:success] = "Your message was successfully sent!"
-      redirect_to current_lec
+      redirect_to @reply.message
     else
       flash[:danger] = "There was a problem submitting message"
-      redirect_to current_lec
+      redirect_to @reply.message
     end
   end
 
@@ -21,7 +21,7 @@ class RepliesController < ApplicationController
 
   private
   def reply_params
-    params.require(:reply).permit(:content, :message_id, :lecturer_id)
+    params.require(:reply).permit(:content,:picture, :message_id, :lecturer_id)
   end
 
   def correct_user
