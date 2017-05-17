@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   root 'pages#home'
   get 'users/new'
+  get 'help' => 'pages#help'
   
   get 'loginlec' => 'sessions#new_lec'
   post 'loginlec' => 'sessions#createlec'
