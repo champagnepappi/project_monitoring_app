@@ -27,6 +27,7 @@
                             </span>
                             <span class="comment">
                                 <%= link_to fa_icon('comments'), message_path(id: fd.id) %>
+                                <%= pluralize(fd.replies.count, "reply") %>
                             </span>
                         <% end %>
                     </li>
