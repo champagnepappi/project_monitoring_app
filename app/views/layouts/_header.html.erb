@@ -22,6 +22,7 @@
                     <% end %>
                     <li> <%= link_to fa_icon('sign-out', text: "Logout"), logout_path, method: :delete %></li>
                 <% else %>
+                    <li> <%= link_to fa_icon('help', text: "Help"), help_path %></li>
                     <li> <%= link_to fa_icon('sign-in', text: "Student Login"), login_path %></li>
                     <li> <%= link_to fa_icon('sign-in', text: "Lecturer Login"), loginlec_path %></li>
                     <%# <li> <%= link_to fa_icon('sign-in', text: "Admin Login"), login_path %1></li> %>
