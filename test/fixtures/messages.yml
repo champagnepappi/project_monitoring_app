@@ -10,3 +10,8 @@ two:
   content: "Lorem ipsum"
   created_at: <%= 1.years.ago %>
   user: glorious
+
+  three:
+      content: "Lorem abdhagsdkajh"
+      created_at: <%= 10.hours.ago%>
+      user: karam
