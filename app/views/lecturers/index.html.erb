@@ -1,21 +1,21 @@
 <% provide(:title, "Lecturers")%>
 <div class="row">
-<div class="medium-12">
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-            </tr>
-        </thead>
-        <% @lecturers.each do |lec|%>
-            <tbody>
+    <div class="medium-12 columns">
+        <table>
+            <thead>
                 <tr>
-                    <td> <%= lec.id %></td>
-                    <td> <%= link_to lec.first_name, lec %></td>
+                    <th>Id</th>
+                    <th>Name</th>
                 </tr>
-            </tbody>
-        <% end %>
-    </table>
-</div>
+            </thead>
+            <% @lecturers.each do |lec|%>
+                <tbody>
+                    <tr>
+                        <td> <%= lec.id %></td>
+                        <td> <%= link_to lec.first_name, lec %></td>
+                    </tr>
+                </tbody>
+            <% end %>
+        </table>
+    </div>
 </div>
