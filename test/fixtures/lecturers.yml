@@ -21,3 +21,12 @@ naish:
   password_digest: <%= User.digest('password')%>
   activated: true
   activated_at: <%= Time.zone.now %>
+
+jenner:
+  first_name: kylie
+  last_name: jenner
+  email: renner@gmail.com
+  password_digest: <%= User.digest('password')%>
+  admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
