@@ -15,5 +15,6 @@ class UserMessagesTest < ActionDispatch::IntegrationTest
       }
     end
     assert_redirected_to login_path
+    assert_not flash.empty?
   end
 end
