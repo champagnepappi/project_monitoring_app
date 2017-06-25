@@ -1,4 +1,6 @@
 class BidsController < ApplicationController
+  before_action :logged_in_user
+
   def new 
     @bid = Bid.new
   end
