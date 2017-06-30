@@ -1,9 +1,11 @@
 <% provide(:title, @project.title)%>
-<table>
-    <tr>
-        <td><th>Title:</th></td>
-        <td> <%= @project.title %> </td>
-    </tr>
-</table>
-<p><strong>Description</strong></p>
-<%= @project.description %>
+<div class="row">
+    <table>
+        <tr>
+            <td><th>Title:</th></td>
+            <td> <%= @project.title %> </td>
+        </tr>
+    </table>
+    <p><strong>Description</strong></p>
+    <%= @project.description %>
+</div>
