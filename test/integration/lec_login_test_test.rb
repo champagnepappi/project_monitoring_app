@@ -15,6 +15,7 @@ class LecLoginTestTest < ActionDispatch::IntegrationTest
      }
    }
    assert_not flash.empty?
+   assert_equal flash[:alert], "Login to continue"
    get root_path
    assert flash.empty?
   end
