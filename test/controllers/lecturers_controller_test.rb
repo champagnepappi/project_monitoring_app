@@ -25,6 +25,7 @@ class LecturersControllerTest < ActionDispatch::IntegrationTest
       }
     }
     assert_redirected_to login_path
+    assert_not flash.empty?
   end
 
   test "redirect edit when logged in as wrong lecturer" do
