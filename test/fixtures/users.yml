@@ -23,3 +23,15 @@ glorious:
   admin: true
   activated: true
   activated_at: <%= Time.zone.now %>
+      
+jenner:
+  first_name: kylie
+  last_name: jenner
+  email: jenner@gmail.com
+  reg_no: SIT/9220/15
+  gender: Female
+  department: IT
+  password_digest: <%= User.digest('password')%>
+  admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
