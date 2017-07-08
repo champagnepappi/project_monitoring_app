@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class RepliesControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+    @user = users(:karam)
+  end
 end
