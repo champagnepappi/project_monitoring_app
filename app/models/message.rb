@@ -3,6 +3,7 @@ class Message < ApplicationRecord
   has_many :replies
   default_scope -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
+  mount_uploader :video, VideoUploader
   validates :content, presence: true, length: { maximum: 140 }
   validates :user_id, presence: true
   validate :picture_size
