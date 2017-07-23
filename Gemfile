@@ -8,6 +8,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 gem 'pundit'
+gem 'paperclip'
+gem 'paperclip-av-transcoder'
 gem 'dotenv-rails', :require => 'dotenv/rails-now'
 # gem 'acts-as-taggable-on'
 
