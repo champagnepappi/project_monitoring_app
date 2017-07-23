@@ -18,6 +18,7 @@
                         <%= link_to fd.user.full_name, fd.user %><br>
                         <%= fd.content %> <br>
                         <%= image_tag fd.picture.url if fd.picture? %>
+                        <%= video_tag fd.video_url.to_s :controls => true if fd.video? %>
                         <% if fd.created_at%>
                             <span class="timestamp">
                                 Posted <%= time_ago_in_words(fd.created_at)%> ago.
