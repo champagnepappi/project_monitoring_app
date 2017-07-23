@@ -45,6 +45,7 @@ $('#reply_picture').bind('change', function() {
                     <% end %>
                     <%= rep.content %> <br>
                     <%= image_tag rep.picture.url if rep.picture? %>
+                        <%= video_tag rep.video_url.to_s :controls => true if rep.video? %>
                     <% if rep.created_at%>
                         <span class="timestamp">
                             Posted <%= time_ago_in_words(rep.created_at)%> ago.
