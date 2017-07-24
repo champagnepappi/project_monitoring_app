@@ -12,6 +12,12 @@ class Message < ApplicationRecord
     self.success = true
   end
 
+  has_attached_file :video, :styles => {
+     :mobile => { :geometry => "400*300",
+                  :format => 'mp4',
+                  :streaming => true}
+  }, :processors => [:ffmpeg, :qtfaststart]
+
   private
   def picture_size
     if picture.size > 5.megabytes
