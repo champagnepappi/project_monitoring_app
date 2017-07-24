@@ -8,6 +8,10 @@ class Message < ApplicationRecord
   validates :user_id, presence: true
   validate :picture_size
 
+  def set_success(format, opts)
+    self.success = true
+  end
+
   private
   def picture_size
     if picture.size > 5.megabytes
