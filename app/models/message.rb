@@ -1,4 +1,5 @@
 class Message < ApplicationRecord
+  attr_accessor :video_file_name
   belongs_to :user
   has_many :replies
   default_scope -> { order(created_at: :desc) }
@@ -7,6 +8,7 @@ class Message < ApplicationRecord
   validates :content, presence: true, length: { maximum: 140 }
   validates :user_id, presence: true
   validate :picture_size
+  validates_attachment_content_type :video, :content_type => ["video/quicktime"]
 
   def set_success(format, opts)
     self.success = true
