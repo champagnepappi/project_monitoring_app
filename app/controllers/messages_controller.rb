@@ -26,7 +26,7 @@ class MessagesController < ApplicationController
 
   private
   def message_params
-    params.require(:message).permit(:content, :picture, :video [:video_file_name, :video_content_type, :video_updated_at])
+    params.require(:message).permit(:content, :picture, :video )
   end
 
   def correct_user
