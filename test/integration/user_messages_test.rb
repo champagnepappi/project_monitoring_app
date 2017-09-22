@@ -17,4 +17,14 @@ class UserMessagesTest < ActionDispatch::IntegrationTest
     assert_redirected_to login_path
     assert_not flash.empty?
   end
+
+  test "invalid message creation" do
+    assert_no_difference 'Message.count' do
+      post messages_path, params: {
+        message: {
+          content: ""
+        }
+      }
+    end
+  end
 end
