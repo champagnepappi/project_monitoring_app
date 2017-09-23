@@ -1,8 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  supervisor_id: 1
-  supervised_id: 1
+  supervisor: ritah
+  supervised: karam
 
 two:
   supervisor_id: 1
