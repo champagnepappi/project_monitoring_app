@@ -5,9 +5,23 @@ class VideoUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
-  include CarrierWave::Video
+  # include CarrierWave::Video
 
-  process encode_video: [:mp4, callbacks: { after_transcode: :set_success }]
+  # process encode_video: [:mp4, callbacks: { after_transcode: :set_success }]
+  # DEFAULTS = {
+  #   watermark: {
+  #   path: Rails.root.join('watermark-large.png')
+  # }
+  # }
+  #  process :encode
+
+  #  def encode
+  #    encode_video(:mp4, DEFAULTS) do |movie, params|
+  #      if movie.height < 720
+  #        params[:watermark][:path] = Rails.root.join('watermark-small.png')
+  #      end
+  #    end
+  #  end
 
   # Choose what kind of storage to use for this uploader:
   storage :file
