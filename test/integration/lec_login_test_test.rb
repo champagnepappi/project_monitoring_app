@@ -15,7 +15,7 @@ class LecLoginTestTest < ActionDispatch::IntegrationTest
      }
    }
    assert_not flash.empty?
-   assert_equal flash[:danger], "Please Login to continue"
+   assert_equal flash[:danger], "Invalid email/password combination"
    get root_path
    assert flash.empty?
   end
