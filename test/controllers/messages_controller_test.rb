@@ -19,7 +19,7 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
 
   test "should redirect destroy when not logged in" do
     assert_no_difference 'Message.count' do
-      delete message_path, params: {id: message}
+      delete message_path(@message)
     end
     assert_redirected_to root_url
   end
