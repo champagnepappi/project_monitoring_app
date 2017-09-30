@@ -4,6 +4,7 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:karam)
     @user2 = users(:glorious)
+    @message = messages(:one)
   end
   
   test "should redirected create when not logged in" do
