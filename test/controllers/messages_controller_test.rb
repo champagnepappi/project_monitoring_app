@@ -21,6 +21,6 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
     assert_no_difference 'Message.count' do
       delete message_path(@message)
     end
-    assert_redirected_to root_url
+    assert_redirected_to login_path
   end
 end
