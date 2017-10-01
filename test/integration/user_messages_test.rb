@@ -27,5 +27,6 @@ class UserMessagesTest < ActionDispatch::IntegrationTest
       }
     end
     assert_not flash.empty?
+    assert flash[:danger], 'There was a problem submitting message'
   end
 end
