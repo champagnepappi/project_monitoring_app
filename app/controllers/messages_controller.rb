@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
 
   def show
     @message = Message.find_by(id: params[:id])
-    @replies = @message.replies
+    @replies = @message.replies.paginate(page: params[:page], per_page: 5)
   end
 
   def destroy
