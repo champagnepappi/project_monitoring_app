@@ -2,7 +2,7 @@ class Reply < ApplicationRecord
   belongs_to :message
   belongs_to :lecturer
   mount_uploader :picture, PictureUploader
-  validates :content, presence: true, length: { maximum: 140 }
+  validates :content, presence: true, length: { maximum: 1000 }
   default_scope -> { order(created_at: :desc) }
   validates :lecturer_id, presence: true
   validates :message_id, presence: true
