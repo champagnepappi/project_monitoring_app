@@ -11,4 +11,14 @@ class RepliesTest < ActionDispatch::IntegrationTest
       }
     end
   end
+
+  test "valid reply submission" do
+    assert_difference 'Reply.count', 1 do
+      post replies_path, params: {
+        reply: {
+          content: "just some reply"
+        }
+      }
+    end
+  end
 end
