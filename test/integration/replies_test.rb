@@ -3,6 +3,7 @@ require 'test_helper'
 class RepliesTest < ActionDispatch::IntegrationTest
   def setup
     @message = messages(:one)
+    @user = users(:karam)
   end
 
   test "invalid reply submission" do
