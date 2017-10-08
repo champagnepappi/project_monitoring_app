@@ -13,4 +13,16 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should redirect create when not logged in" do
+    assert_no_difference 'Project.count' do
+      post projects_path, params: {
+        project: {
+          title: "car tracker",
+          description: "just some hell alot of description"
+
+        }
+      }
+    end
+  end
+
 end
