@@ -22,6 +22,7 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
 
         }
       }
+      assert_redirected_to login_path
     end
   end
 
