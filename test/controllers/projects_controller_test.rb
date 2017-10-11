@@ -23,6 +23,8 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
         }
       }
       assert_redirected_to login_path
+      assert_not flash.empty?
+      assert flash[:danger], "Please login to continue"
     end
   end
 
