@@ -3,6 +3,7 @@ require 'test_helper'
 class ProjectsControllerTest < ActionDispatch::IntegrationTest
 
   def setup
+    @project = projects(:one)
     @user = users(:karam)
     @user2 = users(:glorious)
   end
@@ -26,6 +27,10 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
       assert_not flash.empty?
       assert flash[:danger], "Please login to continue"
     end
+  end
+
+  test "should redirect show when not logged in" do
+    
   end
 
 end
