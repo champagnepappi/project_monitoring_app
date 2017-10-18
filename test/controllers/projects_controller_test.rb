@@ -30,7 +30,8 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should redirect show when not logged in" do
-    
+    get project_path(@project)
+    assert_redirected_to login_path
   end
 
 end
