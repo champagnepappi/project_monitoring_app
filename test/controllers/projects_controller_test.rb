@@ -32,6 +32,8 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
   test "should redirect show when not logged in" do
     get project_path(@project)
     assert_redirected_to login_path
+    assert_not flash.empty?
+    assert flash[:danger], "Please login to continue"
   end
 
 end
