@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  content: MyText
+  content: "Hushfkjshsk"
   message: one
   lecturer: one
 
 two:
-  content: MyText
+  content: "shfhioshfiossoi"
   message: two
   lecturer: two
