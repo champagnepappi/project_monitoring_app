@@ -13,7 +13,7 @@ class Message < ApplicationRecord
                   :streaming => true}
   }, :processors => [:ffmpeg, :qtfaststart]
 validate :picture_size
-  validates_attachment_content_type :video, :content_type => ["video/quicktime"]
+  # validates_attachment_content_type :video, :content_type => ["video/quicktime"]
 
   def set_success(format, opts)
     self.success = true

@@ -21,6 +21,7 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
           title: "car tracker",
           description: "just some hell alot of description"
 
+
         }
       }
       assert_redirected_to login_path
@@ -35,5 +36,6 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
     assert_not flash.empty?
     assert flash[:danger], "Please login to continue"
   end
+
 
 end
