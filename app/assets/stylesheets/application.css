@@ -17,5 +17,5 @@
 
  */
 body {
-    background-image: url(b2.jpg);
+    background: asset-url('b2.jpg');
 }
