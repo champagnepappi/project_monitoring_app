@@ -24,11 +24,12 @@ class PictureUploader < CarrierWave::Uploader::Base
   #   return model.content
   # end
 
-  if Rails.env.production?
-    storage :fog
-  else
-    storage :file
-  end
+  # if Rails.env.production?
+  #   storage :fog
+  # else
+  #   storage :file
+  # end
+  storage :file
 
   # Choose what kind of storage to use for this uploader:
   # storage :fog
