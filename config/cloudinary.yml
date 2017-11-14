@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: kevyne
+  api_key: '755635198535128'
+  api_secret: 5d5hOn3bBDiVD3SUFO3EG1KH5qQ
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: kevyne
+  api_key: '755635198535128'
+  api_secret: 5d5hOn3bBDiVD3SUFO3EG1KH5qQ
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: kevyne
+  api_key: '755635198535128'
+  api_secret: 5d5hOn3bBDiVD3SUFO3EG1KH5qQ
+  enhance_image_tag: true
+  static_image_support: false

@@ -17,7 +17,7 @@
                         <%# <%= link_to gravatar_for(fd.user, size: 50), fd.user %1> %>
                         <%= link_to fd.user.full_name, fd.user %><br>
                         <%= fd.content %> <br>
-                        <%= image_tag fd.picture.url if fd.picture? %>
+                        <%= cl_image_tag fd.picture.url if fd.picture? %>
                         <%# <%= video_tag fd.video_url.to_s :controls=>true if fd.video? %1> %>
                         <% if fd.created_at%>
                             <span class="timestamp">

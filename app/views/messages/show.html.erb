@@ -3,7 +3,7 @@
     <div class="medium-5 columns">
         <%= link_to @message.user.full_name, @message.user %><br>
         <%= @message.content %> <br>
-        <%= image_tag @message.picture.url if @message.picture? %>
+        <%= cl_image_tag @message.picture.url if @message.picture? %>
         <% if @message.created_at%>
             <span class="timestamp">
                 Posted <%= time_ago_in_words(@message.created_at)%> ago.
