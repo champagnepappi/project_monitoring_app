@@ -13,6 +13,7 @@
         <% if current_user?(current_lec)%>
             <%= form_for(@message.replies.build) do |f| %>
                 <%= render 'shared/error_messages', object: f.object %>
+                <%= f.hidden_field :picture_field %>
                 <%= f.hidden_field :message_id %>
                 <%= f.hidden_field :lecturer_id, value: current_lec.id %>
                 <%= f.text_area :content, placeholder: "Reply to this message..." %>
