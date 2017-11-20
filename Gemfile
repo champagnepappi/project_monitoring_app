@@ -12,6 +12,7 @@ gem 'fog'
 gem 'pundit'
 gem 'paperclip'
 gem 'stripe'
+gem 'dotenv-rails', :groups => [:development, :test]
 gem 'paperclip-ffmpeg'
 gem 'paperclip-av-transcoder'
 gem 'dotenv-rails', :require => 'dotenv/rails-now'
