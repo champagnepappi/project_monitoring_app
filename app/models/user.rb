@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   enum role: {user: 0, lecturer: 1}
   enum status: {not_assigned: 0, assigned: 1} 
+  has_many :payments
   has_many :projects
   has_many :messages, dependent: :destroy
   has_one :bid
