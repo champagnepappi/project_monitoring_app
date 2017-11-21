@@ -12,6 +12,7 @@
                 <% if current_user?(@user) && !current_user.admin?%>
                     <p><%= link_to "Submit your project", new_project_path %></p>
                 <% end %>
+                <p> <%= link_to "Donate", new_payment_path, class: "button success" %></p>
             </div>
         </div>
         <div class="medium-8 columns">
