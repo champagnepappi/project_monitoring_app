@@ -432,7 +432,7 @@ DEPENDENCIES
   paperclip-ffmpeg
   pg
   pry
-  puma (~> 3.0)
+  puma
   pundit
   rails (~> 5.0.0)
   rails-controller-testing
@@ -449,4 +449,4 @@ DEPENDENCIES
   will_paginate
 
 BUNDLED WITH
-   1.12.5
+   1.17.2
